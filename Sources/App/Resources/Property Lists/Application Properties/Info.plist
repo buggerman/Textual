@@ -9,7 +9,7 @@
 	<key>CFBundleSignature</key>
 	<string>TXTL</string>
 	<key>CFBundleDisplayName</key>
-	<string>Textual IRC Client</string>
+	<string>Textual-NG</string>
 	<key>CFBundleIdentifier</key>
 	<string>${PRODUCT_BUNDLE_IDENTIFIER}</string>
 	<key>CFBundleName</key>
@@ -21,7 +21,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>7.2.6</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2010 - 2023 Codeux Software, LLC. All rights reserved.</string>
+	<string>Based on Textual by Codeux Software, LLC. Modernized fork by buggerman.</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -31,11 +31,11 @@
 	<key>NSMainNibFile</key>
 	<string>TXCMainMenu</string>
 	<key>LSMinimumSystemVersion</key>
-	<string>11.0</string>
+	<string>14.0</string>
 	<key>NSPrincipalClass</key>
 	<string>TXApplication</string>
 	<key>NSContactsUsageDescription</key>
-	<string>Textual accesses contacts to automatically populate certain forms with your name and/or e-mail address. Access to this information is not required.</string>
+	<string>Textual-NG accesses contacts to automatically populate certain forms with your name and/or e-mail address. Access to this information is not required.</string>
 	<key>NSAppleScriptEnabled</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -51,7 +51,7 @@
 				<string>scpt</string>
 			</array>
 			<key>CFBundleTypeName</key>
-			<string>Textual IRC Client Script</string>
+			<string>Textual-NG IRC Client Script</string>
 			<key>CFBundleTypeOSTypes</key>
 			<array>
 				<string>****</string>
@@ -71,7 +71,7 @@
 				<string>bundle</string>
 			</array>
 			<key>CFBundleTypeName</key>
-			<string>Textual IRC Client Extension</string>
+			<string>Textual-NG IRC Client Extension</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSHandlerRank</key>
@@ -102,7 +102,7 @@
 	<key>SUAllowsAutomaticUpdates</key>
 	<true/>
 	<key>SUBundleName</key>
-	<string>Textual</string>
+	<string>Textual-NG</string>
 	<key>SUEnableDownloaderService</key>
 	<false/>
 	<key>SUEnableInstallerLauncherService</key>
