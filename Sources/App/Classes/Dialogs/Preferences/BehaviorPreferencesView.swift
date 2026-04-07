@@ -65,8 +65,8 @@ struct BehaviorPreferencesView: View {
 			Toggle("Restore scrollback from previous session", isOn: $restoreScrollback)
 			Toggle("Restore the state of queries from previous session", isOn: $restoreQueries)
 		}
-		.padding()
-		.frame(maxWidth: .infinity, alignment: .leading)
+		.padding(EdgeInsets(top: 20, leading: 40, bottom: 20, trailing: 40))
+		.frame(width: 670, height: 272, alignment: .topLeading)
 	}
 }
 
@@ -74,6 +74,8 @@ struct BehaviorPreferencesView: View {
 @objc(BehaviorPreferencesViewController)
 final class BehaviorPreferencesViewController: NSObject {
 	@objc static func makeView() -> NSView {
-		return NSHostingView(rootView: BehaviorPreferencesView())
+		let view = NSHostingView(rootView: BehaviorPreferencesView())
+		view.frame = NSRect(x: 0, y: 0, width: 670, height: 272)
+		return view
 	}
 }
