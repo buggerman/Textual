@@ -128,7 +128,7 @@
 					"$(TEXTUAL_WORKSPACE_DIR)/Sources/Shared/Headers/**",
 					"$(TEXTUAL_WORKSPACE_DIR)/.tmp/Build Headers/",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/../Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -159,7 +159,7 @@
 					"$(TEXTUAL_WORKSPACE_DIR)/Sources/Shared/Headers/**",
 					"$(TEXTUAL_WORKSPACE_DIR)/.tmp/Build Headers/",
 				);
-				INFOPLIST_FILE = "$(SRCROOT)/../Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
