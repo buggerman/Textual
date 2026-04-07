@@ -167,6 +167,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(TEXTUAL_WORKSPACE_DIR)/Build Results/$(CONFIGURATION)/Textual.app/Contents/MacOS/Textual";
 				TEXTUAL_WORKSPACE_DIR = "$(PROJECT_DIR)/..";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -202,6 +203,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(TEXTUAL_WORKSPACE_DIR)/Build Results/$(CONFIGURATION)/Textual.app/Contents/MacOS/Textual";
 				TEXTUAL_WORKSPACE_DIR = "$(PROJECT_DIR)/..";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
