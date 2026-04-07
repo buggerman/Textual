@@ -71,6 +71,14 @@
 + (NSView * _Nonnull)makeView;
 @end
 
+@interface CompatibilityPreferencesViewController : NSObject
++ (NSView * _Nonnull)makeView;
+@end
+
+@interface CommandScopePreferencesViewController : NSObject
++ (NSView * _Nonnull)makeView;
+@end
+
 #if TEXTUAL_BUILT_WITH_SPARKLE_ENABLED == 1
 #import <Sparkle/Sparkle.h>
 #endif
@@ -312,6 +320,8 @@ NS_ASSUME_NONNULL_BEGIN
 	/* Replace preference panes with SwiftUI views */
 	self.contentViewBehavior = [BehaviorPreferencesViewController makeView];
 	self.contentViewControls = [ControlsPreferencesViewController makeView];
+	self.contentViewCompatibility = [CompatibilityPreferencesViewController makeView];
+	self.contentViewCommandScope = [CommandScopePreferencesViewController makeView];
 
 	[self restoreWindowFrame];
 }
