@@ -42,8 +42,7 @@
 				AA100000000000000000011 /* Info.plist */,
 			);
 			name = Sources;
-			path = ..;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		AA10000000000000000000A /* Products */ = {
 			isa = PBXGroup;
