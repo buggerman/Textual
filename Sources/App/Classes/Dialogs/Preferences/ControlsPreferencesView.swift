@@ -149,7 +149,7 @@ struct ControlsPreferencesView: View {
 				}
 				.labelsHidden()
 				.frame(width: 130)
-				.onChange(of: inputFontSize) { _ in
+				.onChange(of: inputFontSize) {
 					performReload(0x800000) // TPCPreferencesReloadActionTextFieldFontSize = 1 << 23
 				}
 			}
@@ -163,13 +163,13 @@ struct ControlsPreferencesView: View {
 			Divider().padding(.vertical, 2)
 
 			Toggle("Save input history for each channel rather than globally", isOn: $historyPerChannel)
-				.onChange(of: historyPerChannel) { _ in
+				.onChange(of: historyPerChannel) {
 					performReload(0x10) // TPCPreferencesReloadActionInputHistoryScope = 1 << 4
 				}
 			Toggle("Command Return (\u{2318}\u{23CE}) sends message as an action", isOn: $commandReturnAction)
 			Toggle("Control Enter (\u{2303}\u{2386}) sends message instead of inserting new line", isOn: $controlEnterSends)
 			Toggle("Hide the buttons left of the input text field", isOn: $hideSegmentedController)
-				.onChange(of: hideSegmentedController) { _ in
+				.onChange(of: hideSegmentedController) {
 					performReload(0x400000) // TPCPreferencesReloadActionTextFieldSegmentedControllerOrigin = 1 << 22
 				}
 		}
