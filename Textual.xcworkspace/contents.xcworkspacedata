@@ -4,6 +4,9 @@
    <FileRef
       location = "group:Sources/App/Textual App.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Tests/TextualTests.xcodeproj">
+   </FileRef>
    <Group
       location = "container:"
       name = "Frameworks">
