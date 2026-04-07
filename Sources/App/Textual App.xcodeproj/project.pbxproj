@@ -21,26 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		BB000001267D25B400D37F07 /* IRCLineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000002267D25B400D37F07 /* IRCLineParser.swift */; };
-		BB000003267D25B400D37F07 /* IRCLineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000002267D25B400D37F07 /* IRCLineParser.swift */; };
-		CC000001267D25B400D37F07 /* BehaviorPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000002267D25B400D37F07 /* BehaviorPreferencesView.swift */; };
-		CC000003267D25B400D37F07 /* BehaviorPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000002267D25B400D37F07 /* BehaviorPreferencesView.swift */; };
-		CC000004267D25B400D37F07 /* ControlsPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000005267D25B400D37F07 /* ControlsPreferencesView.swift */; };
-		CC000006267D25B400D37F07 /* ControlsPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000005267D25B400D37F07 /* ControlsPreferencesView.swift */; };
-		CC000007267D25B400D37F07 /* PreferencesReloadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CC000008267D25B400D37F07 /* PreferencesReloadHelper.m */; };
-		CC000009267D25B400D37F07 /* PreferencesReloadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CC000008267D25B400D37F07 /* PreferencesReloadHelper.m */; };
-		DD000001267D25B400D37F07 /* CompatibilityPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000002267D25B400D37F07 /* CompatibilityPreferencesView.swift */; };
-		DD000003267D25B400D37F07 /* CompatibilityPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000002267D25B400D37F07 /* CompatibilityPreferencesView.swift */; };
-		DD000004267D25B400D37F07 /* CommandScopePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000005267D25B400D37F07 /* CommandScopePreferencesView.swift */; };
-		DD000006267D25B400D37F07 /* CommandScopePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000005267D25B400D37F07 /* CommandScopePreferencesView.swift */; };
-		EE000001267D25B400D37F07 /* IncomingDataPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000002267D25B400D37F07 /* IncomingDataPreferencesView.swift */; };
-		EE000003267D25B400D37F07 /* IncomingDataPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000002267D25B400D37F07 /* IncomingDataPreferencesView.swift */; };
-		EE000004267D25B400D37F07 /* DefaultIdentityPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000005267D25B400D37F07 /* DefaultIdentityPreferencesView.swift */; };
-		EE000006267D25B400D37F07 /* DefaultIdentityPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000005267D25B400D37F07 /* DefaultIdentityPreferencesView.swift */; };
-		EE000007267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000008267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift */; };
-		EE000009267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000008267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift */; };
-		EE00000A267D25B400D37F07 /* ChannelManagementPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00000B267D25B400D37F07 /* ChannelManagementPreferencesView.swift */; };
-		EE00000C267D25B400D37F07 /* ChannelManagementPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00000B267D25B400D37F07 /* ChannelManagementPreferencesView.swift */; };
 		4C06DF2A20EC49A60055D09A /* IRCCommandIndexLocalData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3153A020EB676400448776 /* IRCCommandIndexLocalData.plist */; };
 		4C06DF2B20EC49A60055D09A /* IRCCommandIndexRemoteData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C31539F20EB676400448776 /* IRCCommandIndexRemoteData.plist */; };
 		4C06DF2C20EC49A60055D09A /* IRCNetworks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3153A220EB676400448776 /* IRCNetworks.plist */; };
@@ -1205,6 +1185,26 @@
 		4CEFEDAC22B4AF42002CEE19 /* TDCPreferencesUserStyleSheetPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CB873D622B4A497005AB046 /* TDCPreferencesUserStyleSheetPrivate.h */; };
 		4CEFEDB122B4B6E8002CEE19 /* TDCPreferencesUserStyleSheet.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFEDAE22B4B6E8002CEE19 /* TDCPreferencesUserStyleSheet.strings */; };
 		4CEFEDB222B4B6E8002CEE19 /* TDCPreferencesUserStyleSheet.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4CEFEDAE22B4B6E8002CEE19 /* TDCPreferencesUserStyleSheet.strings */; };
+		BB000001267D25B400D37F07 /* IRCLineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000002267D25B400D37F07 /* IRCLineParser.swift */; };
+		BB000003267D25B400D37F07 /* IRCLineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000002267D25B400D37F07 /* IRCLineParser.swift */; };
+		CC000001267D25B400D37F07 /* BehaviorPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000002267D25B400D37F07 /* BehaviorPreferencesView.swift */; };
+		CC000003267D25B400D37F07 /* BehaviorPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000002267D25B400D37F07 /* BehaviorPreferencesView.swift */; };
+		CC000004267D25B400D37F07 /* ControlsPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000005267D25B400D37F07 /* ControlsPreferencesView.swift */; };
+		CC000006267D25B400D37F07 /* ControlsPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC000005267D25B400D37F07 /* ControlsPreferencesView.swift */; };
+		CC000007267D25B400D37F07 /* PreferencesReloadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CC000008267D25B400D37F07 /* PreferencesReloadHelper.m */; };
+		CC000009267D25B400D37F07 /* PreferencesReloadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CC000008267D25B400D37F07 /* PreferencesReloadHelper.m */; };
+		DD000001267D25B400D37F07 /* CompatibilityPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000002267D25B400D37F07 /* CompatibilityPreferencesView.swift */; };
+		DD000003267D25B400D37F07 /* CompatibilityPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000002267D25B400D37F07 /* CompatibilityPreferencesView.swift */; };
+		DD000004267D25B400D37F07 /* CommandScopePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000005267D25B400D37F07 /* CommandScopePreferencesView.swift */; };
+		DD000006267D25B400D37F07 /* CommandScopePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD000005267D25B400D37F07 /* CommandScopePreferencesView.swift */; };
+		EE000001267D25B400D37F07 /* IncomingDataPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000002267D25B400D37F07 /* IncomingDataPreferencesView.swift */; };
+		EE000003267D25B400D37F07 /* IncomingDataPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000002267D25B400D37F07 /* IncomingDataPreferencesView.swift */; };
+		EE000004267D25B400D37F07 /* DefaultIdentityPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000005267D25B400D37F07 /* DefaultIdentityPreferencesView.swift */; };
+		EE000006267D25B400D37F07 /* DefaultIdentityPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000005267D25B400D37F07 /* DefaultIdentityPreferencesView.swift */; };
+		EE000007267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000008267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift */; };
+		EE000009267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000008267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift */; };
+		EE00000A267D25B400D37F07 /* ChannelManagementPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00000B267D25B400D37F07 /* ChannelManagementPreferencesView.swift */; };
+		EE00000C267D25B400D37F07 /* ChannelManagementPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00000B267D25B400D37F07 /* ChannelManagementPreferencesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1481,17 +1481,6 @@
 		4C31512B20EB673E00448776 /* IRCAddressBookMatchCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCAddressBookMatchCache.m; sourceTree = "<group>"; };
 		4C31512C20EB673E00448776 /* IRCSendingMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCSendingMessage.m; sourceTree = "<group>"; };
 		4C31512D20EB673E00448776 /* IRCMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCMessage.m; sourceTree = "<group>"; };
-		BB000002267D25B400D37F07 /* IRCLineParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRCLineParser.swift; sourceTree = "<group>"; };
-		CC000002267D25B400D37F07 /* BehaviorPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorPreferencesView.swift; sourceTree = "<group>"; };
-		CC000005267D25B400D37F07 /* ControlsPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsPreferencesView.swift; sourceTree = "<group>"; };
-		CC000008267D25B400D37F07 /* PreferencesReloadHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesReloadHelper.m; sourceTree = "<group>"; };
-		CC00000A267D25B400D37F07 /* PreferencesReloadHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesReloadHelper.h; sourceTree = "<group>"; };
-		DD000002267D25B400D37F07 /* CompatibilityPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityPreferencesView.swift; sourceTree = "<group>"; };
-		DD000005267D25B400D37F07 /* CommandScopePreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandScopePreferencesView.swift; sourceTree = "<group>"; };
-		EE000002267D25B400D37F07 /* IncomingDataPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingDataPreferencesView.swift; sourceTree = "<group>"; };
-		EE000005267D25B400D37F07 /* DefaultIdentityPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIdentityPreferencesView.swift; sourceTree = "<group>"; };
-		EE000008267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIRCopMessagesPreferencesView.swift; sourceTree = "<group>"; };
-		EE00000B267D25B400D37F07 /* ChannelManagementPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelManagementPreferencesView.swift; sourceTree = "<group>"; };
 		4C31512E20EB673E00448776 /* IRCConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCConnection.m; sourceTree = "<group>"; };
 		4C31512F20EB673E00448776 /* IRCTimerCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCTimerCommand.m; sourceTree = "<group>"; };
 		4C31513020EB673E00448776 /* IRCModeInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCModeInfo.m; sourceTree = "<group>"; };
@@ -1676,7 +1665,6 @@
 		4C31520820EB673E00448776 /* TVCTextViewWithIRCFormatterPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVCTextViewWithIRCFormatterPrivate.h; sourceTree = "<group>"; };
 		4C31520A20EB673E00448776 /* SwiftBridgingHeaderPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftBridgingHeaderPrivate.h; sourceTree = "<group>"; };
 		4C31520B20EB673E00448776 /* IRCClientPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRCClientPrivate.h; sourceTree = "<group>"; };
-		BB000004267D25B400D37F07 /* IRCLineParserPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRCLineParserPrivate.h; sourceTree = "<group>"; };
 		4C31520D20EB673E00448776 /* TVCLogViewPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVCLogViewPrivate.h; sourceTree = "<group>"; };
 		4C31520F20EB673E00448776 /* TDCServerHighlightListSheetPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDCServerHighlightListSheetPrivate.h; sourceTree = "<group>"; };
 		4C31521020EB673E00448776 /* TPCThemeControllerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCThemeControllerPrivate.h; sourceTree = "<group>"; };
@@ -1995,6 +1983,18 @@
 		5D9B8EB6170A0EB400919CB0 /* BuildFrameworks.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = BuildFrameworks.sh; path = "Build Scripts/BuildFrameworks.sh"; sourceTree = "<group>"; };
 		5D9B8EB8170A0EB400919CB0 /* UpdateVersionInfo.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = UpdateVersionInfo.sh; path = "Build Scripts/UpdateVersionInfo.sh"; sourceTree = "<group>"; };
 		5D9B8EB9170A10F200919CB0 /* BuildExtensions.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = BuildExtensions.sh; path = "Build Scripts/BuildExtensions.sh"; sourceTree = "<group>"; };
+		BB000002267D25B400D37F07 /* IRCLineParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRCLineParser.swift; sourceTree = "<group>"; };
+		BB000004267D25B400D37F07 /* IRCLineParserPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRCLineParserPrivate.h; sourceTree = "<group>"; };
+		CC000002267D25B400D37F07 /* BehaviorPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorPreferencesView.swift; sourceTree = "<group>"; };
+		CC000005267D25B400D37F07 /* ControlsPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsPreferencesView.swift; sourceTree = "<group>"; };
+		CC000008267D25B400D37F07 /* PreferencesReloadHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesReloadHelper.m; sourceTree = "<group>"; };
+		CC00000A267D25B400D37F07 /* PreferencesReloadHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesReloadHelper.h; sourceTree = "<group>"; };
+		DD000002267D25B400D37F07 /* CompatibilityPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityPreferencesView.swift; sourceTree = "<group>"; };
+		DD000005267D25B400D37F07 /* CommandScopePreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandScopePreferencesView.swift; sourceTree = "<group>"; };
+		EE000002267D25B400D37F07 /* IncomingDataPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingDataPreferencesView.swift; sourceTree = "<group>"; };
+		EE000005267D25B400D37F07 /* DefaultIdentityPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIdentityPreferencesView.swift; sourceTree = "<group>"; };
+		EE000008267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIRCopMessagesPreferencesView.swift; sourceTree = "<group>"; };
+		EE00000B267D25B400D37F07 /* ChannelManagementPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelManagementPreferencesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5285,6 +5285,7 @@
 		4C13442520C75C4900343AB7 /* Release (Sandboxed) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 26.4;
 			};
 			name = "Release (Sandboxed)";
 		};
@@ -5345,6 +5346,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63359U33VJ;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
@@ -5355,6 +5357,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 63359U33VJ;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
