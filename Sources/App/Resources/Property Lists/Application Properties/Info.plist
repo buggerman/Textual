@@ -110,7 +110,7 @@
 	<key>SUEnableSystemProfiling</key>
 	<false/>
 	<key>SUFeedURL</key>
-	<string>https://updates.textualapp.com/sparkle/feeds/v7/feed-one-merged.xml</string>
+	<string>https://raw.githubusercontent.com/buggerman/Textual/master/appcast.xml</string>
 	<key>SUScheduledCheckInterval</key>
 	<string>345600</string>
 </dict>
