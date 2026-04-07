@@ -26,6 +26,28 @@
 		};
 /* End PBXFrameworksBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AA100000000000000000012 /* Update Feature Flags */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update Feature Flags";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nmkdir -p \"${TEXTUAL_WORKSPACE_DIR}/.tmp/Build Headers/\"\nmkdir -p \"${TEXTUAL_WORKSPACE_DIR}/.tmp/Script-Logs/\"\nexec \"${TEXTUAL_WORKSPACE_DIR}/Sources/App/Build Scripts/UpdateFeatureFlags.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXGroup section */
 		AA100000000000000000008 /* root */ = {
 			isa = PBXGroup;
@@ -59,6 +81,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA10000000000000000000F /* Build configuration list for PBXNativeTarget "TextualTests" */;
 			buildPhases = (
+				AA100000000000000000012 /* Update Feature Flags */,
 				AA100000000000000000003 /* Sources */,
 				AA100000000000000000004 /* Frameworks */,
 			);
