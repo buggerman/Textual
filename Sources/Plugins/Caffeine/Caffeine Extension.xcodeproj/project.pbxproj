@@ -175,6 +175,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB911A08733D790010E9CD /* Build configuration list for PBXNativeTarget "Caffeine Extension" */;
 			buildPhases = (
+				AA000003267D25B400D37F07 /* Update Feature Flags */,
 				8D57630F048677EA00EA77CD /* Resources */,
 				8D576313048677EA00EA77CD /* Frameworks */,
 				8D576311048677EA00EA77CD /* Sources */,
@@ -197,12 +198,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1600;
-				TargetAttributes = {
-					8D57630D048677EA00EA77CD = {
-						DevelopmentTeam = 8482Q6EPL6;
-						ProvisioningStyle = Manual;
-					};
-				};
 			};
 			buildConfigurationList = 1DEB911E08733D790010E9CD /* Build configuration list for PBXProject "Caffeine Extension" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -244,6 +239,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AA000003267D25B400D37F07 /* Update Feature Flags */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update Feature Flags";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nmkdir -p \"${TEXTUAL_WORKSPACE_TEMP_DIR}/Build Headers/\"\nmkdir -p \"${TEXTUAL_WORKSPACE_TEMP_DIR}/Script-Logs/\"\nexec \"${TEXTUAL_WORKSPACE_DIR}/Sources/App/Build Scripts/UpdateFeatureFlags.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXVariantGroup section */
 		4C36AAF220F27E9B007CA939 /* BasicLanguage.strings */ = {
 			isa = PBXVariantGroup;
@@ -267,18 +284,30 @@
 		1DEB911B08733D790010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63359U33VJ;
 				INFOPLIST_FILE = "Resources/Property Lists/Info.plist";
+				OTHER_LDFLAGS = "$(inherited) -undefined dynamic_lookup";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codeux.app-extensions.textual-Caffeine-bundled";
 				PRODUCT_NAME = Caffeine;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		1DEB911C08733D790010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63359U33VJ;
 				INFOPLIST_FILE = "Resources/Property Lists/Info.plist";
+				OTHER_LDFLAGS = "$(inherited) -undefined dynamic_lookup";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codeux.app-extensions.textual-Caffeine-bundled";
 				PRODUCT_NAME = Caffeine;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
@@ -305,7 +334,9 @@
 		4CCD21E51FA41DE20056F5FE /* Release (App Store) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "";
 				INFOPLIST_FILE = "Resources/Property Lists/Info.plist";
+				OTHER_LDFLAGS = "$(inherited) -undefined dynamic_lookup";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codeux.app-extensions.textual-Caffeine-bundled";
 				PRODUCT_NAME = Caffeine;
 			};

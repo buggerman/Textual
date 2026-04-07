@@ -4081,6 +4081,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C1DC5701580420500A47BC9 /* Build configuration list for PBXNativeTarget "Textual (Standard Release)" */;
 			buildPhases = (
+				AA000001267D25B400D37F07 /* Update Feature Flags */,
 				4C1DC5501580420500A47BC9 /* Resources */,
 				4CEA6AA42C36F8E700A36551 /* Copy Preference Resources */,
 				4C9E534415B4C171000E84A9 /* Copy Acknowledgements */,
@@ -4109,6 +4110,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C5BA4E116F1302F00A96CA2 /* Build configuration list for PBXNativeTarget "Textual (Debug)" */;
 			buildPhases = (
+				AA000002267D25B400D37F07 /* Update Feature Flags */,
 				4C5BA37916F1302F00A96CA2 /* Resources */,
 				4CEA6AA92C36F91400A36551 /* Copy Preference Resources */,
 				4C5BA4DC16F1302F00A96CA2 /* Copy Acknowledgements */,
@@ -4142,10 +4144,8 @@
 				ORGANIZATIONNAME = "Codeux Software, LLC";
 				TargetAttributes = {
 					4C1DC5511580420500A47BC9 = {
-						DevelopmentTeam = 8482Q6EPL6;
 						DevelopmentTeamName = "Codeux Software, LLC";
 						LastSwiftMigration = 1100;
-						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 1;
@@ -4181,8 +4181,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4C5BA37216F1302F00A96CA2 /* Textual (Debug) */,
 				4C1DC5511580420500A47BC9 /* Textual (Standard Release) */,
+				4C5BA37216F1302F00A96CA2 /* Textual (Debug) */,
 				4CCF301015804DCE006FFE21 /* Build Frameworks */,
 			);
 		};
@@ -4620,6 +4620,44 @@
 			shellPath = /bin/sh;
 			shellScript = "\nexec \"${PROJECT_DIR}/Build Scripts/BuildExtensions.sh\" | tee \"${TEXTUAL_WORKSPACE_TEMP_DIR}/Script-Logs/BuildExtensions.txt\"\n";
 			showEnvVarsInLog = 0;
+		};
+		AA000001267D25B400D37F07 /* Update Feature Flags */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update Feature Flags";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nmkdir -p \"${TEXTUAL_WORKSPACE_TEMP_DIR}/Build Headers/\"\nmkdir -p \"${TEXTUAL_WORKSPACE_TEMP_DIR}/Script-Logs/\"\nexec \"${PROJECT_DIR}/Build Scripts/UpdateFeatureFlags.sh\"\n";
+		};
+		AA000002267D25B400D37F07 /* Update Feature Flags */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update Feature Flags";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nmkdir -p \"${TEXTUAL_WORKSPACE_TEMP_DIR}/Build Headers/\"\nmkdir -p \"${TEXTUAL_WORKSPACE_TEMP_DIR}/Script-Logs/\"\nexec \"${PROJECT_DIR}/Build Scripts/UpdateFeatureFlags.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -5469,6 +5507,10 @@
 		4C13442620C75C4900343AB7 /* Release (Sandboxed) */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63359U33VJ;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = "Release (Sandboxed)";
 		};
@@ -5496,12 +5538,20 @@
 		4C1DC5711580420500A47BC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63359U33VJ;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		4C1DC5721580420500A47BC9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63359U33VJ;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

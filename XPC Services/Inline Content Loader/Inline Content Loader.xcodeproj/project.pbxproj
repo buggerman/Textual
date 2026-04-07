@@ -566,7 +566,6 @@
 				TargetAttributes = {
 					4C1406411F11942B00C73D53 = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -662,10 +661,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "${PROJECT_DIR}/Configurations/Sandbox/Release.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63359U33VJ;
 				GCC_PREFIX_HEADER = "${PROJECT_DIR}/Classes/Headers/Private/ICLProcessPCHPrivate.h";
 				INFOPLIST_FILE = "Resources/Property Lists/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codeux.app-utilities.Textual-InlineContentLoader";
 				PRODUCT_NAME = "Inline Content Loader";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -673,10 +676,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "${PROJECT_DIR}/Configurations/Sandbox/Release.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63359U33VJ;
 				GCC_PREFIX_HEADER = "${PROJECT_DIR}/Classes/Headers/Private/ICLProcessPCHPrivate.h";
 				INFOPLIST_FILE = "Resources/Property Lists/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codeux.app-utilities.Textual-InlineContentLoader";
 				PRODUCT_NAME = "Inline Content Loader";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
