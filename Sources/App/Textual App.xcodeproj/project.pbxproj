@@ -1211,6 +1211,8 @@
 		A1000003267D25B400D37F07 /* InlineMediaPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000002267D25B400D37F07 /* InlineMediaPreferencesView.swift */; };
 		A1000004267D25B400D37F07 /* GeneralPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000005267D25B400D37F07 /* GeneralPreferencesView.swift */; };
 		A1000006267D25B400D37F07 /* GeneralPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000005267D25B400D37F07 /* GeneralPreferencesView.swift */; };
+		A1000007267D25B400D37F07 /* LogLocationPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000008267D25B400D37F07 /* LogLocationPreferencesView.swift */; };
+		A1000009267D25B400D37F07 /* LogLocationPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000008267D25B400D37F07 /* LogLocationPreferencesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2004,6 +2006,7 @@
 		FF000002267D25B400D37F07 /* InterfacePreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfacePreferencesView.swift; sourceTree = "<group>"; };
 		A1000002267D25B400D37F07 /* InlineMediaPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineMediaPreferencesView.swift; sourceTree = "<group>"; };
 		A1000005267D25B400D37F07 /* GeneralPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesView.swift; sourceTree = "<group>"; };
+		A1000008267D25B400D37F07 /* LogLocationPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogLocationPreferencesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2753,6 +2756,7 @@
 				EE000002267D25B400D37F07 /* IncomingDataPreferencesView.swift */,
 				A1000002267D25B400D37F07 /* InlineMediaPreferencesView.swift */,
 				FF000002267D25B400D37F07 /* InterfacePreferencesView.swift */,
+				A1000008267D25B400D37F07 /* LogLocationPreferencesView.swift */,
 				CC000005267D25B400D37F07 /* ControlsPreferencesView.swift */,
 				CC00000A267D25B400D37F07 /* PreferencesReloadHelper.h */,
 				CC000008267D25B400D37F07 /* PreferencesReloadHelper.m */,
@@ -4554,6 +4558,7 @@
 				A1000004267D25B400D37F07 /* GeneralPreferencesView.swift in Sources */,
 				A1000001267D25B400D37F07 /* InlineMediaPreferencesView.swift in Sources */,
 				FF000001267D25B400D37F07 /* InterfacePreferencesView.swift in Sources */,
+				A1000007267D25B400D37F07 /* LogLocationPreferencesView.swift in Sources */,
 				EE000001267D25B400D37F07 /* IncomingDataPreferencesView.swift in Sources */,
 				CC000007267D25B400D37F07 /* PreferencesReloadHelper.m in Sources */,
 				4C06E59E20EC553A0055D09A /* TDCPreferencesController.m in Sources */,
@@ -4741,6 +4746,7 @@
 				A1000006267D25B400D37F07 /* GeneralPreferencesView.swift in Sources */,
 				A1000003267D25B400D37F07 /* InlineMediaPreferencesView.swift in Sources */,
 				FF000003267D25B400D37F07 /* InterfacePreferencesView.swift in Sources */,
+				A1000009267D25B400D37F07 /* LogLocationPreferencesView.swift in Sources */,
 				EE000003267D25B400D37F07 /* IncomingDataPreferencesView.swift in Sources */,
 				CC000009267D25B400D37F07 /* PreferencesReloadHelper.m in Sources */,
 				4C06E65720EC55B90055D09A /* TDCPreferencesController.m in Sources */,
