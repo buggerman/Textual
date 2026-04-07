@@ -5,7 +5,10 @@
  *********************************************************************** */
 
 import XCTest
-@testable import Textual
+
+/* IRCLineParser and IRCLineParserResult are @objc classes compiled into
+   the main Textual app. The test bundle loads into the app at runtime,
+   so these classes are available without an explicit import. */
 
 class IRCLineParserTests: XCTestCase {
 
