@@ -55,7 +55,6 @@
 #import "TVCMainWindowSplitView.h"
 #import "TVCMainWindowTextView.h"
 #import "TLOEncryptionManagerPrivate.h"
-#import "TLOLicenseManagerPrivate.h"
 #import "TLOLocalization.h"
 #import "TLOpenLink.h"
 #import "TDCAboutDialogPrivate.h"
@@ -67,7 +66,6 @@
 #import "TDCChannelSpotlightControllerPrivate.h"
 #import "TDCFileTransferDialogPrivate.h"
 #import "TDCInputPrompt.h"
-#import "TDCLicenseManagerDialogPrivate.h"
 #import "TDCNicknameColorSheetPrivate.h"
 #import "TDCPreferencesControllerPrivate.h"
 #import "TDCServerChangeNicknameSheetPrivate.h"
@@ -271,15 +269,6 @@ NS_ASSUME_NONNULL_BEGIN
 	/* If trial is expired, then default everything to disabled. */
 	BOOL isTrialExpired = NO;
 
-#if TEXTUAL_BUILT_WITH_LICENSE_MANAGER == 1
-	if (TLOLicenseManagerTextualIsRegistered() == NO && TLOLicenseManagerIsTrialExpired()) {
-		/* Set flag letting logic know trial expired */
-		isTrialExpired = YES;
-
-		/* Disable everything by default except "Manage license…" */
-		validationResult = (tag == MTMMAppManageLicense);
-	} // if
-#endif
 
 	/* If certain items are hidden because of sheet but not because
 	 of the trial being expired, then enable additional items. */
@@ -384,9 +373,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 		case MTMMAppManageLicense: // "Manage license…"
 		{
-#if TEXTUAL_BUILT_WITH_LICENSE_MANAGER == 0
 			menuItem.hidden = YES;
-#endif
 
 			return YES;
 		}
@@ -2911,49 +2898,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)manageLicense:(id)sender
 {
-#if TEXTUAL_BUILT_WITH_LICENSE_MANAGER == 1
-	[self manageLicense:sender activateLicenseKey:nil licenseKeyPassedByArgument:NO];
-#endif
+	/* License manager not available */
 }
-
-#if TEXTUAL_BUILT_WITH_LICENSE_MANAGER == 1
-- (void)manageLicense:(id)sender activateLicenseKey:(nullable NSString *)licenseKey
-{
-	[self manageLicense:sender activateLicenseKey:licenseKey licenseKeyPassedByArgument:NO];
-}
-
-- (void)manageLicense:(id)sender activateLicenseKeyWithURL:(NSURL *)licenseKeyURL
-{
-	NSParameterAssert(licenseKeyURL != nil);
-
-	NSString *path = licenseKeyURL.path;
-
-	if (path == nil) {
-		return;
-	}
-
-	NSCharacterSet *slashCharacterSet = [NSCharacterSet characterSetWithCharactersInString:@"/"];
-
-	NSString *licenseKey = [path stringByTrimmingCharactersInSet:slashCharacterSet];
-
-	if (licenseKey.length == 0) {
-		return;
-	}
-
-	[self manageLicense:sender activateLicenseKey:licenseKey licenseKeyPassedByArgument:NO];
-}
-
-- (void)manageLicense:(id)sender activateLicenseKey:(nullable NSString *)licenseKey licenseKeyPassedByArgument:(BOOL)licenseKeyPassedByArgument
-{
-	TDCLicenseManagerDialog *licenseDialog = [TXSharedApplication sharedLicenseManagerDialog];
-
-	[licenseDialog show];
-
-	if (licenseKey) {
-		[licenseDialog activateLicenseKey:licenseKey silently:licenseKeyPassedByArgument];
-	}
-}
-#endif
 
 #pragma mark -
 #pragma mark Developer

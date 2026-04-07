@@ -73,11 +73,9 @@
 #import "TLOKeyEventHandler.h"
 #import "TLOInputHistoryPrivate.h"
 #import "TLOLocalization.h"
-#import "TLOLicenseManagerPrivate.h"
 #import "TLONicknameCompletionStatusPrivate.h"
 #import "TLONotificationControllerPrivate.h"
 #import "TLOSpeechSynthesizerPrivate.h"
-#import "TDCLicenseManagerDialogPrivate.h"
 #import "TVCMainWindowPrivate.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -207,23 +205,6 @@ NSString * const TVCMainWindowSelectionChangedNotification = @"TVCMainWindowSele
 
 - (void)observeNotifications
 {
-#if TEXTUAL_BUILT_WITH_LICENSE_MANAGER == 1
-	[RZNotificationCenter() addObserver:self
-							   selector:@selector(licenseManagerActivatedLicense:)
-								   name:TDCLicenseManagerActivatedLicenseNotification
-								 object:nil];
-
-	[RZNotificationCenter() addObserver:self
-							   selector:@selector(licenseManagerDeactivatedLicense:)
-								   name:TDCLicenseManagerDeactivatedLicenseNotification
-								 object:nil];
-
-	[RZNotificationCenter() addObserver:self
-							   selector:@selector(licenseManagerTrialExpired:)
-								   name:TDCLicenseManagerTrialExpiredNotification
-								 object:nil];
-#endif
-
 	[RZNotificationCenter() addObserver:self
 							   selector:@selector(applicationAppearanceChanged:)
 								   name:TXApplicationAppearanceChangedNotification
@@ -1797,26 +1778,6 @@ NSString * const TVCMainWindowSelectionChangedNotification = @"TVCMainWindowSele
 }
 
 #pragma mark -
-#pragma mark License Manager
-
-#if TEXTUAL_BUILT_WITH_LICENSE_MANAGER == 1
-- (void)licenseManagerActivatedLicense:(NSNotification *)notification
-{
-	[self reloadLoadingScreen];
-}
-
-- (void)licenseManagerDeactivatedLicense:(NSNotification *)notification
-{
-	[self reloadLoadingScreen];
-}
-
-- (void)licenseManagerTrialExpired:(NSNotification *)notification
-{
-	[self reloadLoadingScreen];
-}
-#endif
-
-#pragma mark -
 #pragma mark Loading Screen
 
 - (void)setLoadingScreenProgressViewReason:(NSString *)progressReason
@@ -1839,14 +1800,6 @@ NSString * const TVCMainWindowSelectionChangedNotification = @"TVCMainWindowSele
 
 		return NO;
 	}
-
-#if TEXTUAL_BUILT_WITH_LICENSE_MANAGER == 1
-	if (TLOLicenseManagerTextualIsRegistered() == NO && TLOLicenseManagerIsTrialExpired()) {
-		[self.loadingScreen showTrialExpiredView];
-
-		return NO;
-	}
-#endif
 
 	if (worldController().clientCount <= 0) {
 		[self.loadingScreen showWelcomeAddServerView];
