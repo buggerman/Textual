@@ -99,6 +99,14 @@
 + (NSView * _Nonnull)makeView;
 @end
 
+@interface InlineMediaPreferencesViewController : NSObject
++ (NSView * _Nonnull)makeView;
+@end
+
+@interface GeneralPreferencesViewController : NSObject
++ (NSView * _Nonnull)makeView;
+@end
+
 #if TEXTUAL_BUILT_WITH_SPARKLE_ENABLED == 1
 #import <Sparkle/Sparkle.h>
 #endif
@@ -347,6 +355,8 @@ NS_ASSUME_NONNULL_BEGIN
 	self.contentViewDefaultIRCopMessages = [DefaultIRCopMessagesPreferencesViewController makeView];
 	self.contentViewChannelManagement = [ChannelManagementPreferencesViewController makeView];
 	self.contentViewInterface = [InterfacePreferencesViewController makeView];
+	self.contentViewInlineMedia = [InlineMediaPreferencesViewController makeView];
+	self.contentViewGeneral = [GeneralPreferencesViewController makeView];
 
 	[self restoreWindowFrame];
 }
