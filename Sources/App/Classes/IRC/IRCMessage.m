@@ -41,6 +41,7 @@
 #import "TXGlobalModelsPrivate.h"
 #import "IRCClientPrivate.h"
 #import "IRCPrefix.h"
+#import "IRCLineParserPrivate.h"
 #import "IRCMessageInternal.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -196,111 +197,63 @@ DESIGNATED_INITIALIZER_EXCEPTION_BODY_END
 {
 	NSParameterAssert(line != nil);
 
-	NSMutableString *lineMutable = [line mutableCopy];
+	/* Delegate structural parsing to the Swift IRCLineParser */
+	IRCLineParserResult *result = [IRCLineParser parse:line];
 
-	/* Parse extension information (if present) */
-	if ([lineMutable hasPrefix:@"@"]) {
-		NSString *extensionInfo = lineMutable.token;
-
-		if (extensionInfo.length <= 1) {
-			return NO;
-		}
-
-		extensionInfo = [extensionInfo substringFromIndex:1];
-
-		[self parseExtensions:extensionInfo forClient:client];
+	if (result == nil) {
+		return NO;
 	}
 
-	/* Parse sender information (if present) */
-	if ([lineMutable hasPrefix:@":"]) {
-		NSString *senderInfo = lineMutable.token;
+	/* Populate command */
+	self->_command = result.command;
+	self->_commandNumeric = result.commandNumeric;
 
-		if (senderInfo.length <= 1) {
-			return NO;
+	/* Populate parameters */
+	self->_params = result.params;
+
+	/* Populate message tags (raw) */
+	if (result.tags.count > 0) {
+		self->_messageTags = result.tags;
+	}
+
+	/* Populate sender */
+	if (result.senderString != nil) {
+		IRCPrefixMutable *sender = [IRCPrefixMutable new];
+
+		sender.hostmask = result.senderString;
+
+		if (result.senderIsServer) {
+			sender.nickname = result.senderNickname;
+			sender.isServer = YES;
+		} else {
+			sender.nickname = result.senderNickname;
+			sender.username = result.senderUsername;
+			sender.address = result.senderAddress;
 		}
 
-		senderInfo = [senderInfo substringFromIndex:1];
-
-		[self parseSender:senderInfo forClient:client];
+		self->_sender = [sender copy];
 	} else {
-		/* If the line does not have a sender, then we use the 
-		 server address as the sender. If that isn't known, then
-		 we use the the address the user has configured. */
-		/* -serverAddress is only nil when the client isn't
-		 connected anywhere. We are parsing messages when
-		 connected somewhere so it's safe to cast it as
-		 as non-nil at least here. */
+		/* No sender prefix — use server address from client */
 		NSString * _Nonnull serverAddress = (NSString * _Nonnull)client.serverAddress;
 
 		IRCPrefixMutable *sender = [IRCPrefixMutable new];
 
 		sender.nickname = serverAddress;
-
 		sender.hostmask = serverAddress;
-
 		sender.isServer = YES;
 
 		self->_sender = [sender copy];
 	}
 
-	/* Parse command */
-	NSString *command = lineMutable.token;
-
-	if (command.length < 1) {
-		return NO;
-	}
-
-	if (command.isNumericOnly) {
-		self->_command = [command copy];
-
-		self->_commandNumeric = command.integerValue;
-	} else {
-		self->_command = [command.uppercaseString copy];
-
-		self->_commandNumeric = 0;
-	}
-
-	/* Parse remaining data */
-	NSMutableArray<NSString *> *parameters = [NSMutableArray new];
-
-	while (lineMutable.length > 0) {
-		if ([lineMutable hasPrefix:@":"])
-		{
-			NSString *sequence = [lineMutable substringFromIndex:1];
-
-			[parameters addObject:sequence];
-
-			break;
-		}
-		else
-		{
-			NSString *sequence = lineMutable.token;
-
-			[parameters addObject:sequence];
-		}
-	}
-
-	self->_params = [parameters copy];
+	/* Process IRCv3 extensions that depend on client capabilities */
+	[self processExtensions:result.tags forClient:client];
 
 	/* Return success */
 	return YES;
 }
 
-- (void)parseExtensions:(NSString *)extensionInfo forClient:(nullable IRCClient *)client
+- (void)processExtensions:(NSDictionary<NSString *, NSString *> *)extensions forClient:(nullable IRCClient *)client
 {
-	NSParameterAssert(extensionInfo != nil);
-
-	/* Chop the tags up using ; as a divider as defined by the syntax
-	 located at: <http://ircv3.net/specs/core/message-tags-3.2.html> */
-	/* An example grouping would look like the following:
-	 @aaa=bbb;ccc;example.com/ddd=eee */
-	NSDictionary<NSString *, NSString *> *extensions =
-	[extensionInfo formDataUsingSeparator:@";" decodingBlock:^NSString *(NSString *value) {
-		return value.decodedMessageTagString;
-	}];
-
-	self->_messageTags = [extensions copy];
-
 	/* If there is no client, then further processing is not possible */
 	if (client == nil) {
 		return;
@@ -346,31 +299,6 @@ DESIGNATED_INITIALIZER_EXCEPTION_BODY_END
 	}
 }
 
-- (void)parseSender:(NSString *)senderInfo forClient:(nullable IRCClient *)client
-{
-	NSParameterAssert(senderInfo != nil);
-
-	IRCPrefixMutable *sender = [IRCPrefixMutable new];
-
-	NSString *senderNickname = nil;
-	NSString *senderUsername = nil;
-	NSString *senderAddress = nil;
-
-	sender.hostmask = senderInfo;// Declare entire section as host
-
-	/* Parse the user info into their appropriate sections or return NO if we can't. */
-	if ([senderInfo hostmaskComponents:&senderNickname username:&senderUsername address:&senderAddress onClient:client]) {
-		sender.nickname = senderNickname;
-		sender.username = senderUsername;
-		sender.address = senderAddress;
-	} else {
-		sender.nickname = senderInfo;
-
-		sender.isServer = YES;
-	}
-
-	self->_sender = [sender copy];
-}
 
 @end
 
