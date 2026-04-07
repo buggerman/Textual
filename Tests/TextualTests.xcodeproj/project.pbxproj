@@ -81,7 +81,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA10000000000000000000F /* Build configuration list for PBXNativeTarget "TextualTests" */;
 			buildPhases = (
-				AA100000000000000000012 /* Update Feature Flags */,
 				AA100000000000000000003 /* Sources */,
 				AA100000000000000000004 /* Frameworks */,
 			);
@@ -143,7 +142,7 @@
 					"$(TEXTUAL_WORKSPACE_DIR)/.tmp/SharedBuildProducts-Frameworks/**",
 					"$(TEXTUAL_WORKSPACE_DIR)/Frameworks/**",
 				);
-				GCC_PREFIX_HEADER = "$(TEXTUAL_WORKSPACE_DIR)/Sources/App/Classes/Headers/Private/TextualPrivate.h";
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(TEXTUAL_WORKSPACE_DIR)/Sources/App/Classes/Headers/**",
@@ -174,7 +173,7 @@
 					"$(TEXTUAL_WORKSPACE_DIR)/.tmp/SharedBuildProducts-Frameworks/**",
 					"$(TEXTUAL_WORKSPACE_DIR)/Frameworks/**",
 				);
-				GCC_PREFIX_HEADER = "$(TEXTUAL_WORKSPACE_DIR)/Sources/App/Classes/Headers/Private/TextualPrivate.h";
+				GCC_PREFIX_HEADER = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(TEXTUAL_WORKSPACE_DIR)/Sources/App/Classes/Headers/**",

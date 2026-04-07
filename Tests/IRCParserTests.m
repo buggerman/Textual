@@ -9,6 +9,7 @@
  *********************************************************************** */
 
 @import XCTest;
+@import Cocoa;
 
 #import "IRCMessage.h"
 #import "IRCPrefix.h"
