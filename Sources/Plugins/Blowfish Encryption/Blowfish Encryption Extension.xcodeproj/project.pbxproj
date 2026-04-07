@@ -288,6 +288,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB911A08733D790010E9CD /* Build configuration list for PBXNativeTarget "Blowfish Encryption Extension" */;
 			buildPhases = (
+				AA000004267D25B400D37F07 /* Update Feature Flags */,
 				4CD4026F16C8CE4E00FEA686 /* Resources */,
 				8D576313048677EA00EA77CD /* Frameworks */,
 				8D576311048677EA00EA77CD /* Sources */,
@@ -363,6 +364,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+
+/* Begin PBXShellScriptBuildPhase section */
+		AA000004267D25B400D37F07 /* Update Feature Flags */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Update Feature Flags";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nexport TEXTUAL_WORKSPACE_TEMP_DIR=\"${TEXTUAL_WORKSPACE_DIR}/.tmp\"\nmkdir -p \"${TEXTUAL_WORKSPACE_TEMP_DIR}/Build Headers/\"\nmkdir -p \"${TEXTUAL_WORKSPACE_TEMP_DIR}/Script-Logs/\"\nexec \"${TEXTUAL_WORKSPACE_DIR}/Sources/App/Build Scripts/UpdateFeatureFlags.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
