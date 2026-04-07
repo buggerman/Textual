@@ -178,13 +178,60 @@ final class ConnectionSocketNWF: ConnectionSocket, ConnectionSocketProtocol
 
 	func read()
 	{
-		if (connected == false || disconnecting) {
-			return
-		}
+		startReadLoop()
+	}
 
-		connection?.receive(minimumIncompleteLength: 0,
-							maximumLength: maximumDataLength,
-							completion: readCompletionHandler)
+	fileprivate func startReadLoop()
+	{
+		Task { [weak self] in
+			guard let self = self else { return }
+
+			while self.connected && !self.disconnecting {
+				do {
+					let (content, context, isComplete) = try await self.asyncReceive()
+
+					if self.disconnecting { break }
+
+					if (context?.isFinal == true && isComplete) {
+						self.EOFReceived = true
+
+						self.delegate?.connectionClosedReadStream(self)
+
+						break
+					}
+
+					guard let data = content else {
+						self.close(with: "Unexpected condition: There is no data when there is no error")
+
+						break
+					}
+
+					self.readIn(data)
+				} catch let error as NWError {
+					self.close(with: error)
+
+					break
+				} catch {
+					self.close(with: "Read error: \(error.localizedDescription)")
+
+					break
+				}
+			}
+		}
+	}
+
+	fileprivate func asyncReceive() async throws -> (Data?, NWConnection.ContentContext?, Bool)
+	{
+		try await withCheckedThrowingContinuation { continuation in
+			connection?.receive(minimumIncompleteLength: 0, maximumLength: maximumDataLength) {
+				content, context, isComplete, error in
+				if let error = error {
+					continuation.resume(throwing: error)
+				} else {
+					continuation.resume(returning: (content, context, isComplete))
+				}
+			}
+		}
 	}
 
 	func readIn(_ data: Data)
@@ -256,7 +303,40 @@ final class ConnectionSocketNWF: ConnectionSocket, ConnectionSocketProtocol
 
 		delegate?.connection(self, willSend: data)
 
-		connection?.send(content: data, completion: .contentProcessed(writeCompletionHandler))
+		Task { [weak self] in
+			guard let self = self else { return }
+
+			do {
+				try await self.asyncWrite(data)
+
+				if self.disconnecting { return }
+
+				self.sending = false
+
+				self.delegate?.connectionDidSend(self)
+			} catch let error as NWError {
+				self.sending = false
+
+				self.close(with: error)
+			} catch {
+				self.sending = false
+
+				self.close(with: "Write error: \(error.localizedDescription)")
+			}
+		}
+	}
+
+	fileprivate func asyncWrite(_ data: Data) async throws
+	{
+		try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+			connection?.send(content: data, completion: .contentProcessed { error in
+				if let error = error {
+					continuation.resume(throwing: error)
+				} else {
+					continuation.resume()
+				}
+			})
+		}
 	}
 
 	// MARK: - Properties
@@ -332,54 +412,6 @@ final class ConnectionSocketNWF: ConnectionSocket, ConnectionSocketProtocol
 	}
 
 	// NWConnection Delegate
-
-	final func readCompletionHandler(_ content: Data?, _ contentContext: NWConnection.ContentContext?, _ isComplete: Bool, _ error: NWError?)
-	{
-		if (disconnecting) {
-			return
-		}
-
-		if let error = error {
-			close(with: error)
-
-			return
-		}
-
-		if (contentContext?.isFinal == true && isComplete) {
-			EOFReceived = true
-
-			delegate?.connectionClosedReadStream(self)
-
-			return
-		}
-
-		if (content == nil) {
-			close(with: "Unexpected condition: There is no data when there is no error")
-
-			return
-		}
-
-		readIn(content!)
-
-		read()
-	}
-
-	final func writeCompletionHandler(_ error: NWError?)
-	{
-		if (disconnecting) {
-			return
-		}
-
-		sending = false
-
-		if let error = error {
-			close(with: error)
-
-			return
-		}
-
-		delegate?.connectionDidSend(self)
-	}
 
 	final func statusUpdateHandler(_ status: NWConnection.State)
 	{
