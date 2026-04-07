@@ -4,9 +4,12 @@ set -e
 
 cd "${TEXTUAL_WORKSPACE_TEMP_DIR}/Build Headers/"
 
+# Use a unique temp file to avoid races with concurrent builds
+_tmpfile="_FeatureFlags_$$.h"
+
 echo "
 /* ANY CHANGES TO THIS FILE WILL NOT BE SAVED AND WILL NOT BE COMMITTED */
-" > _FeatureFlags.h
+" > "${_tmpfile}"
 
 featureNames=("TEXTUAL_BUILT_INSIDE_SANDBOX"
 			"TEXTUAL_BUILT_WITH_SPARKLE_ENABLED"
@@ -19,24 +22,19 @@ for feature in "${featureNames[@]}"; do
 	featureValue="${!feature}"
 
 	if [ -n "${featureValue}" ]; then
-		echo "#define ${feature} ${featureValue}" >> _FeatureFlags.h
+		echo "#define ${feature} ${featureValue}" >> "${_tmpfile}"
 	else
-		echo "#define ${feature} 0" >> _FeatureFlags.h
+		echo "#define ${feature} 0" >> "${_tmpfile}"
 	fi
 done
 
-if cmp -s "FeatureFlags.h" "_FeatureFlags.h"; then
+if cmp -s "FeatureFlags.h" "${_tmpfile}"; then
 	echo "The feature flags file hasn't changed. Not deploying."
-
-	rm "_FeatureFlags.h"
+	rm "${_tmpfile}"
 else
-	# Force flag is used on rm to avoid error for missing file
-	rm -f "FeatureFlags.h"
-
-	mv "_FeatureFlags.h" "FeatureFlags.h"
+	# Atomic replace — safe against concurrent builds
+	mv -f "${_tmpfile}" "FeatureFlags.h"
 fi
-
-# ------ #
 
 # Exit with success
 exit 0;
