@@ -136,6 +136,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63359U33VJ;
 				CONFIGURATION_BUILD_DIR = "$(TEXTUAL_WORKSPACE_DIR)/Build Results/$(CONFIGURATION)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -168,6 +171,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63359U33VJ;
 				CONFIGURATION_BUILD_DIR = "$(TEXTUAL_WORKSPACE_DIR)/Build Results/$(CONFIGURATION)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
