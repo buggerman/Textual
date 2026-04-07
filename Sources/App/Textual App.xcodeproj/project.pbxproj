@@ -1205,6 +1205,8 @@
 		EE000009267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE000008267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift */; };
 		EE00000A267D25B400D37F07 /* ChannelManagementPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00000B267D25B400D37F07 /* ChannelManagementPreferencesView.swift */; };
 		EE00000C267D25B400D37F07 /* ChannelManagementPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00000B267D25B400D37F07 /* ChannelManagementPreferencesView.swift */; };
+		FF000001267D25B400D37F07 /* InterfacePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000002267D25B400D37F07 /* InterfacePreferencesView.swift */; };
+		FF000003267D25B400D37F07 /* InterfacePreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000002267D25B400D37F07 /* InterfacePreferencesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1995,6 +1997,7 @@
 		EE000005267D25B400D37F07 /* DefaultIdentityPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIdentityPreferencesView.swift; sourceTree = "<group>"; };
 		EE000008267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultIRCopMessagesPreferencesView.swift; sourceTree = "<group>"; };
 		EE00000B267D25B400D37F07 /* ChannelManagementPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelManagementPreferencesView.swift; sourceTree = "<group>"; };
+		FF000002267D25B400D37F07 /* InterfacePreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfacePreferencesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2741,6 +2744,7 @@
 				EE000005267D25B400D37F07 /* DefaultIdentityPreferencesView.swift */,
 				EE000008267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift */,
 				EE000002267D25B400D37F07 /* IncomingDataPreferencesView.swift */,
+				FF000002267D25B400D37F07 /* InterfacePreferencesView.swift */,
 				CC000005267D25B400D37F07 /* ControlsPreferencesView.swift */,
 				CC00000A267D25B400D37F07 /* PreferencesReloadHelper.h */,
 				CC000008267D25B400D37F07 /* PreferencesReloadHelper.m */,
@@ -4539,6 +4543,7 @@
 				CC000004267D25B400D37F07 /* ControlsPreferencesView.swift in Sources */,
 				EE000004267D25B400D37F07 /* DefaultIdentityPreferencesView.swift in Sources */,
 				EE000007267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift in Sources */,
+				FF000001267D25B400D37F07 /* InterfacePreferencesView.swift in Sources */,
 				EE000001267D25B400D37F07 /* IncomingDataPreferencesView.swift in Sources */,
 				CC000007267D25B400D37F07 /* PreferencesReloadHelper.m in Sources */,
 				4C06E59E20EC553A0055D09A /* TDCPreferencesController.m in Sources */,
@@ -4723,6 +4728,7 @@
 				CC000006267D25B400D37F07 /* ControlsPreferencesView.swift in Sources */,
 				EE000006267D25B400D37F07 /* DefaultIdentityPreferencesView.swift in Sources */,
 				EE000009267D25B400D37F07 /* DefaultIRCopMessagesPreferencesView.swift in Sources */,
+				FF000003267D25B400D37F07 /* InterfacePreferencesView.swift in Sources */,
 				EE000003267D25B400D37F07 /* IncomingDataPreferencesView.swift in Sources */,
 				CC000009267D25B400D37F07 /* PreferencesReloadHelper.m in Sources */,
 				4C06E65720EC55B90055D09A /* TDCPreferencesController.m in Sources */,

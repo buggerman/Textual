@@ -95,6 +95,10 @@
 + (NSView * _Nonnull)makeView;
 @end
 
+@interface InterfacePreferencesViewController : NSObject
++ (NSView * _Nonnull)makeView;
+@end
+
 #if TEXTUAL_BUILT_WITH_SPARKLE_ENABLED == 1
 #import <Sparkle/Sparkle.h>
 #endif
@@ -342,6 +346,7 @@ NS_ASSUME_NONNULL_BEGIN
 	self.contentViewDefaultIdentity = [DefaultIdentityPreferencesViewController makeView];
 	self.contentViewDefaultIRCopMessages = [DefaultIRCopMessagesPreferencesViewController makeView];
 	self.contentViewChannelManagement = [ChannelManagementPreferencesViewController makeView];
+	self.contentViewInterface = [InterfacePreferencesViewController makeView];
 
 	[self restoreWindowFrame];
 }
