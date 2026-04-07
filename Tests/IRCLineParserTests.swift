@@ -5,6 +5,7 @@
  *********************************************************************** */
 
 import XCTest
+@testable import Textual
 
 class IRCLineParserTests: XCTestCase {
 
