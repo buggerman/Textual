@@ -79,6 +79,22 @@
 + (NSView * _Nonnull)makeView;
 @end
 
+@interface IncomingDataPreferencesViewController : NSObject
++ (NSView * _Nonnull)makeView;
+@end
+
+@interface DefaultIdentityPreferencesViewController : NSObject
++ (NSView * _Nonnull)makeView;
+@end
+
+@interface DefaultIRCopMessagesPreferencesViewController : NSObject
++ (NSView * _Nonnull)makeView;
+@end
+
+@interface ChannelManagementPreferencesViewController : NSObject
++ (NSView * _Nonnull)makeView;
+@end
+
 #if TEXTUAL_BUILT_WITH_SPARKLE_ENABLED == 1
 #import <Sparkle/Sparkle.h>
 #endif
@@ -322,6 +338,10 @@ NS_ASSUME_NONNULL_BEGIN
 	self.contentViewControls = [ControlsPreferencesViewController makeView];
 	self.contentViewCompatibility = [CompatibilityPreferencesViewController makeView];
 	self.contentViewCommandScope = [CommandScopePreferencesViewController makeView];
+	self.contentViewIncomingData = [IncomingDataPreferencesViewController makeView];
+	self.contentViewDefaultIdentity = [DefaultIdentityPreferencesViewController makeView];
+	self.contentViewDefaultIRCopMessages = [DefaultIRCopMessagesPreferencesViewController makeView];
+	self.contentViewChannelManagement = [ChannelManagementPreferencesViewController makeView];
 
 	[self restoreWindowFrame];
 }
