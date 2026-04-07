@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		BB000001267D25B400D37F07 /* IRCLineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000002267D25B400D37F07 /* IRCLineParser.swift */; };
+		BB000003267D25B400D37F07 /* IRCLineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000002267D25B400D37F07 /* IRCLineParser.swift */; };
 		4C06DF2A20EC49A60055D09A /* IRCCommandIndexLocalData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3153A020EB676400448776 /* IRCCommandIndexLocalData.plist */; };
 		4C06DF2B20EC49A60055D09A /* IRCCommandIndexRemoteData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C31539F20EB676400448776 /* IRCCommandIndexRemoteData.plist */; };
 		4C06DF2C20EC49A60055D09A /* IRCNetworks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C3153A220EB676400448776 /* IRCNetworks.plist */; };
@@ -1461,6 +1463,7 @@
 		4C31512B20EB673E00448776 /* IRCAddressBookMatchCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCAddressBookMatchCache.m; sourceTree = "<group>"; };
 		4C31512C20EB673E00448776 /* IRCSendingMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCSendingMessage.m; sourceTree = "<group>"; };
 		4C31512D20EB673E00448776 /* IRCMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCMessage.m; sourceTree = "<group>"; };
+		BB000002267D25B400D37F07 /* IRCLineParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRCLineParser.swift; sourceTree = "<group>"; };
 		4C31512E20EB673E00448776 /* IRCConnection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCConnection.m; sourceTree = "<group>"; };
 		4C31512F20EB673E00448776 /* IRCTimerCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCTimerCommand.m; sourceTree = "<group>"; };
 		4C31513020EB673E00448776 /* IRCModeInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCModeInfo.m; sourceTree = "<group>"; };
@@ -2310,6 +2313,7 @@
 				4C31512620EB673E00448776 /* IRCHighlightLogEntry.m */,
 				4C31512A20EB673E00448776 /* IRCHighlightMatchCondition.m */,
 				4C31514120EB673E00448776 /* IRCISupportInfo.m */,
+				BB000002267D25B400D37F07 /* IRCLineParser.swift */,
 				4C31512D20EB673E00448776 /* IRCMessage.m */,
 				4C31513F20EB673E00448776 /* IRCMessageBatch.m */,
 				4C31513020EB673E00448776 /* IRCModeInfo.m */,
@@ -4541,6 +4545,7 @@
 				4C06E5D020EC553A0055D09A /* IRCHighlightMatchCondition.m in Sources */,
 				4C469E3B20EC5BDB00094EA4 /* TLOLinkParser.swift in Sources */,
 				4C06E5D120EC553A0055D09A /* IRCISupportInfo.m in Sources */,
+				BB000001267D25B400D37F07 /* IRCLineParser.swift in Sources */,
 				4C06E5D220EC553A0055D09A /* IRCMessage.m in Sources */,
 				4C06E5D320EC553A0055D09A /* IRCMessageBatch.m in Sources */,
 				4C06E5D420EC553A0055D09A /* IRCModeInfo.m in Sources */,
@@ -4715,6 +4720,7 @@
 				4C06E68920EC55B90055D09A /* IRCHighlightMatchCondition.m in Sources */,
 				4C469E3D20EC5BDB00094EA4 /* TLOLinkParser.swift in Sources */,
 				4C06E68A20EC55B90055D09A /* IRCISupportInfo.m in Sources */,
+				BB000003267D25B400D37F07 /* IRCLineParser.swift in Sources */,
 				4C06E68B20EC55B90055D09A /* IRCMessage.m in Sources */,
 				4C06E68C20EC55B90055D09A /* IRCMessageBatch.m in Sources */,
 				4C06E68D20EC55B90055D09A /* IRCModeInfo.m in Sources */,

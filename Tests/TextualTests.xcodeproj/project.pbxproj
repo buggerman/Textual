@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		AA100000000000000000005 /* IRCParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AA100000000000000000006 /* IRCParserTests.m */; };
+		BB100000000000000000001 /* IRCLineParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB100000000000000000002 /* IRCLineParserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AA100000000000000000006 /* IRCParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCParserTests.m; sourceTree = "<group>"; };
+		BB100000000000000000002 /* IRCLineParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRCLineParserTests.swift; sourceTree = "<group>"; };
 		AA100000000000000000007 /* TextualTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextualTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA100000000000000000011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				AA100000000000000000006 /* IRCParserTests.m */,
+				BB100000000000000000002 /* IRCLineParserTests.swift */,
 				AA100000000000000000011 /* Info.plist */,
 			);
 			name = Sources;
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA100000000000000000005 /* IRCParserTests.m in Sources */,
+				BB100000000000000000001 /* IRCLineParserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
