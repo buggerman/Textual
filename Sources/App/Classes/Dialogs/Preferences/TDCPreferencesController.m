@@ -61,6 +61,7 @@
 #import "TDCPreferencesNotificationConfigurationPrivate.h"
 #import "TDCPreferencesUserStyleSheetPrivate.h"
 #import "TDCPreferencesControllerPrivate.h"
+#import "Textual-Swift.h"
 
 #if TEXTUAL_BUILT_WITH_SPARKLE_ENABLED == 1
 #import <Sparkle/Sparkle.h>
@@ -299,6 +300,9 @@ NS_ASSUME_NONNULL_BEGIN
 #endif
 
 	[self.contentViewGeneral layoutSubtreeIfNeeded];
+
+	/* Replace the Behavior pane with a SwiftUI view */
+	self.contentViewBehavior = [BehaviorPreferencesViewController makeView];
 
 	[self restoreWindowFrame];
 }
