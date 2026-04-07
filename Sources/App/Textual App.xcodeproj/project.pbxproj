@@ -3977,10 +3977,8 @@
 						};
 					};
 					4C5BA37216F1302F00A96CA2 = {
-						DevelopmentTeam = 8482Q6EPL6;
 						DevelopmentTeamName = "Codeux Software, LLC";
 						LastSwiftMigration = 1100;
-						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 1;
@@ -5280,12 +5278,20 @@
 		4C5BA4E216F1302F00A96CA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63359U33VJ;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
 		4C5BA4E316F1302F00A96CA2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 63359U33VJ;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
