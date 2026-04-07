@@ -44,7 +44,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\nmkdir -p \"${TEXTUAL_WORKSPACE_DIR}/.tmp/Build Headers/\"\nmkdir -p \"${TEXTUAL_WORKSPACE_DIR}/.tmp/Script-Logs/\"\nexec \"${TEXTUAL_WORKSPACE_DIR}/Sources/App/Build Scripts/UpdateFeatureFlags.sh\"\n";
+			shellScript = "\nexport TEXTUAL_WORKSPACE_TEMP_DIR=\"${TEXTUAL_WORKSPACE_DIR}/.tmp\"\nmkdir -p \"${TEXTUAL_WORKSPACE_TEMP_DIR}/Build Headers/\"\nmkdir -p \"${TEXTUAL_WORKSPACE_TEMP_DIR}/Script-Logs/\"\nexec \"${TEXTUAL_WORKSPACE_DIR}/Sources/App/Build Scripts/UpdateFeatureFlags.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
