@@ -1648,6 +1648,7 @@
 		4C31520820EB673E00448776 /* TVCTextViewWithIRCFormatterPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVCTextViewWithIRCFormatterPrivate.h; sourceTree = "<group>"; };
 		4C31520A20EB673E00448776 /* SwiftBridgingHeaderPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftBridgingHeaderPrivate.h; sourceTree = "<group>"; };
 		4C31520B20EB673E00448776 /* IRCClientPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRCClientPrivate.h; sourceTree = "<group>"; };
+		BB000004267D25B400D37F07 /* IRCLineParserPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRCLineParserPrivate.h; sourceTree = "<group>"; };
 		4C31520D20EB673E00448776 /* TVCLogViewPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVCLogViewPrivate.h; sourceTree = "<group>"; };
 		4C31520F20EB673E00448776 /* TDCServerHighlightListSheetPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDCServerHighlightListSheetPrivate.h; sourceTree = "<group>"; };
 		4C31521020EB673E00448776 /* TPCThemeControllerPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCThemeControllerPrivate.h; sourceTree = "<group>"; };
@@ -2546,6 +2547,7 @@
 				4C31521120EB673E00448776 /* IRCChannelUserPrivate.h */,
 				4C3151C720EB673E00448776 /* IRCClientConfigPrivate.h */,
 				4C31520B20EB673E00448776 /* IRCClientPrivate.h */,
+				BB000004267D25B400D37F07 /* IRCLineParserPrivate.h */,
 				4C31523F20EB673E00448776 /* IRCClientRequestedCommandsPrivate.h */,
 				4C3151B120EB673E00448776 /* IRCColorFormatPrivate.h */,
 				4C3151AE20EB673E00448776 /* IRCCommandIndexPrivate.h */,
