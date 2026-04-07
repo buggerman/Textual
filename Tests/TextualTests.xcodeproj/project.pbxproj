@@ -139,16 +139,15 @@
 				CONFIGURATION_BUILD_DIR = "$(TEXTUAL_WORKSPACE_DIR)/Build Results/$(CONFIGURATION)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(TEXTUAL_WORKSPACE_DIR)/.tmp/SharedBuildProducts-Frameworks/**",
-					"$(TEXTUAL_WORKSPACE_DIR)/Frameworks/**",
+					"$(TEXTUAL_WORKSPACE_DIR)/.tmp/SharedBuildProducts-Frameworks",
+					"$(TEXTUAL_WORKSPACE_DIR)/Frameworks",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TestsPCH.h";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(TEXTUAL_WORKSPACE_DIR)/Sources/App/Classes/Headers/**",
 					"$(TEXTUAL_WORKSPACE_DIR)/Sources/Shared/Headers/**",
-					"$(TEXTUAL_WORKSPACE_DIR)/.tmp/Build Headers/",
-					"$(TEXTUAL_WORKSPACE_DIR)/Frameworks/Cocoa Extensions/Classes/**",
+					"$(TEXTUAL_WORKSPACE_DIR)/.tmp/Build Headers",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -171,16 +170,15 @@
 				CONFIGURATION_BUILD_DIR = "$(TEXTUAL_WORKSPACE_DIR)/Build Results/$(CONFIGURATION)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(TEXTUAL_WORKSPACE_DIR)/.tmp/SharedBuildProducts-Frameworks/**",
-					"$(TEXTUAL_WORKSPACE_DIR)/Frameworks/**",
+					"$(TEXTUAL_WORKSPACE_DIR)/.tmp/SharedBuildProducts-Frameworks",
+					"$(TEXTUAL_WORKSPACE_DIR)/Frameworks",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TestsPCH.h";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(TEXTUAL_WORKSPACE_DIR)/Sources/App/Classes/Headers/**",
 					"$(TEXTUAL_WORKSPACE_DIR)/Sources/Shared/Headers/**",
-					"$(TEXTUAL_WORKSPACE_DIR)/.tmp/Build Headers/",
-					"$(TEXTUAL_WORKSPACE_DIR)/Frameworks/Cocoa Extensions/Classes/**",
+					"$(TEXTUAL_WORKSPACE_DIR)/.tmp/Build Headers",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
