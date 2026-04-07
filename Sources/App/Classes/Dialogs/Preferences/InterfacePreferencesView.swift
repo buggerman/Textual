@@ -196,7 +196,7 @@ struct InterfacePreferencesView: View {
 			}
 		}
 		.padding(EdgeInsets(top: 14, leading: 40, bottom: 14, trailing: 40))
-		.frame(width: 670, height: 436, alignment: .topLeading)
+		.frame(width: 670, height: 560, alignment: .topLeading)
 	}
 }
 
@@ -204,7 +204,7 @@ struct InterfacePreferencesView: View {
 final class InterfacePreferencesViewController: NSObject {
 	@objc static func makeView() -> NSView {
 		let view = NSHostingView(rootView: InterfacePreferencesView())
-		view.frame = NSRect(x: 0, y: 0, width: 670, height: 436)
+		view.frame = NSRect(x: 0, y: 0, width: 670, height: 560)
 		return view
 	}
 }
