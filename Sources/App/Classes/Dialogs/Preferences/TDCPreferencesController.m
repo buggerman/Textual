@@ -62,8 +62,12 @@
 #import "TDCPreferencesUserStyleSheetPrivate.h"
 #import "TDCPreferencesControllerPrivate.h"
 
-/* ObjC interface for BehaviorPreferencesView (implemented in Swift) */
+/* ObjC interfaces for SwiftUI preference panes */
 @interface BehaviorPreferencesViewController : NSObject
++ (NSView * _Nonnull)makeView;
+@end
+
+@interface ControlsPreferencesViewController : NSObject
 + (NSView * _Nonnull)makeView;
 @end
 
@@ -305,8 +309,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 	[self.contentViewGeneral layoutSubtreeIfNeeded];
 
-	/* Replace the Behavior pane with a SwiftUI view */
+	/* Replace preference panes with SwiftUI views */
 	self.contentViewBehavior = [BehaviorPreferencesViewController makeView];
+	self.contentViewControls = [ControlsPreferencesViewController makeView];
 
 	[self restoreWindowFrame];
 }

@@ -42,3 +42,6 @@
 
 // TLOLinkParser.swift
 #import "TVCLogLine.h"
+
+// SwiftUI Preferences
+#import "PreferencesReloadHelper.h"
