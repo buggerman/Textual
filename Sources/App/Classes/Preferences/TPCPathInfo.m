@@ -146,9 +146,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (nullable NSURL *)groupContainerURL
 {
-	NSURL *baseURL = [RZFileManager() containerURLForSecurityApplicationGroupIdentifier:TXBundleBuildGroupContainerIdentifier];
+	/* For non-sandboxed self-compiled builds, use ~/Library/Application Support/Textual
+	   instead of the group container to avoid the "access data from other apps" prompt. */
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+	NSString *appSupport = [paths.firstObject stringByAppendingPathComponent:@"Textual"];
 
-	return baseURL;
+	[RZFileManager() createDirectoryAtPath:appSupport withIntermediateDirectories:YES attributes:nil error:NULL];
+
+	return [NSURL fileURLWithPath:appSupport isDirectory:YES];
 }
 
 + (nullable NSString *)groupContainerApplicationCaches

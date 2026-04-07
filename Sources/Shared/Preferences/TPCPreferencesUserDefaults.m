@@ -68,7 +68,9 @@ NSString * const TPCPreferencesUserDefaultsDidChangeNotification = @"TPCPreferen
 
 - (instancetype)_initGroupContainer
 {
-	TPCPreferencesUserDefaults *defaults = [super initWithSuiteName:TXBundleBuildGroupContainerIdentifier];
+	/* For non-sandboxed self-compiled builds, use standard user defaults
+	   instead of group container suite to avoid the "access data from other apps" prompt. */
+	TPCPreferencesUserDefaults *defaults = [super init];
 
 	return defaults;
 }
