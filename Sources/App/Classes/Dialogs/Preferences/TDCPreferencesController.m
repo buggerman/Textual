@@ -61,7 +61,11 @@
 #import "TDCPreferencesNotificationConfigurationPrivate.h"
 #import "TDCPreferencesUserStyleSheetPrivate.h"
 #import "TDCPreferencesControllerPrivate.h"
-#import "Textual-Swift.h"
+
+/* ObjC interface for BehaviorPreferencesView (implemented in Swift) */
+@interface BehaviorPreferencesViewController : NSObject
++ (NSView * _Nonnull)makeView;
+@end
 
 #if TEXTUAL_BUILT_WITH_SPARKLE_ENABLED == 1
 #import <Sparkle/Sparkle.h>
