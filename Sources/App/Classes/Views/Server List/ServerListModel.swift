@@ -111,6 +111,20 @@ final class ServerListModel: ObservableObject {
 		selectedItemId = itemId
 	}
 
+	func toggleExpanded(serverId: String) {
+		if let index = servers.firstIndex(where: { $0.id == serverId }) {
+			servers[index].channels = servers[index].channels // trigger update
+			let newState = !servers[index].isExpanded
+			servers[index] = ServerItem(
+				id: servers[index].id,
+				name: servers[index].name,
+				isActive: servers[index].isActive,
+				isExpanded: newState,
+				channels: servers[index].channels
+			)
+		}
+	}
+
 	func doubleClick(itemId: String) {
 		ServerListBridge.doubleClickItem(withId: itemId)
 	}

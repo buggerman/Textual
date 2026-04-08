@@ -23,11 +23,12 @@ struct ServerListView: View {
 				}
 			}
 		)) {
-			ForEach(model.servers) { server in
-				ServerRow(server: server)
-					.tag(server.id)
-					.contentShape(Rectangle())
-					.appKitContextMenu { ServerListBridge.serverContextMenu() }
+			ForEach($model.servers) { $server in
+				ServerRow(server: server, onToggle: {
+					model.toggleExpanded(serverId: server.id)
+				})
+				.tag(server.id)
+				.contentShape(Rectangle())
 
 				if server.isExpanded {
 					ForEach(server.channels) { channel in
@@ -35,7 +36,6 @@ struct ServerListView: View {
 							.tag(channel.id)
 							.contentShape(Rectangle())
 							.padding(.leading, 12)
-							.appKitContextMenu { ServerListBridge.channelContextMenu(forItem: channel.id) }
 					}
 				}
 			}
@@ -48,6 +48,7 @@ struct ServerListView: View {
 
 struct ServerRow: View {
 	let server: ServerItem
+	let onToggle: () -> Void
 
 	var body: some View {
 		HStack {
@@ -61,9 +62,13 @@ struct ServerRow: View {
 
 			Spacer()
 
-			Image(systemName: server.isExpanded ? "chevron.down" : "chevron.right")
-				.font(.system(size: 9))
-				.foregroundColor(.secondary)
+			Button(action: onToggle) {
+				Image(systemName: server.isExpanded ? "chevron.down" : "chevron.right")
+					.font(.system(size: 9))
+					.foregroundColor(.secondary)
+			}
+			.buttonStyle(.plain)
+			.frame(width: 20, height: 20)
 		}
 	}
 }
@@ -119,33 +124,7 @@ struct BadgeView: View {
 	}
 }
 
-// MARK: - NSView Wrapper
-
-// MARK: - AppKit Context Menu Bridge
-
-struct AppKitContextMenu: NSViewRepresentable {
-	let menu: () -> NSMenu?
-
-	func makeNSView(context: Context) -> NSView {
-		let view = NSView()
-		return view
-	}
-
-	func updateNSView(_ nsView: NSView, context: Context) {
-		nsView.menu = menu()
-	}
-}
-
-extension View {
-	func appKitContextMenu(_ menu: @escaping () -> NSMenu?) -> some View {
-		self.overlay(
-			AppKitContextMenu(menu: menu)
-				.allowsHitTesting(false)
-		)
-	}
-}
-
-// MARK: - Debug Panel (temporary — shows SwiftUI sidebar alongside the real one)
+// MARK: - Debug Panel
 
 @objc(ServerListSwiftViewController)
 final class ServerListSwiftViewController: NSObject {
@@ -157,8 +136,6 @@ final class ServerListSwiftViewController: NSObject {
 		return view
 	}
 
-	/// Show a floating panel with the SwiftUI server list for testing.
-	/// Call from ObjC: [ServerListSwiftViewController showDebugPanel]
 	@objc static func showDebugPanel() {
 		if let existing = panel {
 			existing.makeKeyAndOrderFront(nil)
