@@ -28,16 +28,12 @@ struct ServerListView: View {
 					ForEach(server.channels) { channel in
 						ChannelRow(channel: channel)
 							.tag(channel.id)
-							.onTapGesture(count: 2) {
-								model.doubleClick(itemId: channel.id)
-							}
+							.contentShape(Rectangle())
 					}
 				} header: {
 					ServerRow(server: server)
 						.tag(server.id)
-						.onTapGesture(count: 2) {
-							model.doubleClick(itemId: server.id)
-						}
+						.contentShape(Rectangle())
 				}
 			}
 		}
@@ -87,8 +83,6 @@ struct ChannelRow: View {
 	private var channelIcon: String {
 		if channel.isPrivateMessage {
 			return "person.fill"
-		} else if channel.isChannel {
-			return "number"
 		} else {
 			return "text.bubble"
 		}
