@@ -29,6 +29,16 @@ struct ServerListView: View {
 				})
 				.tag(server.id)
 				.contentShape(Rectangle())
+				.contextMenu {
+					if server.isActive {
+						Button("Disconnect") { model.doubleClick(itemId: server.id) }
+					} else {
+						Button("Connect") { model.doubleClick(itemId: server.id) }
+					}
+					Divider()
+					Button("Add Channel\u{2026}") { }
+					Button("Server Properties\u{2026}") { }
+				}
 
 				if server.isExpanded {
 					ForEach(server.channels) { channel in
@@ -36,6 +46,15 @@ struct ServerListView: View {
 							.tag(channel.id)
 							.contentShape(Rectangle())
 							.padding(.leading, 12)
+							.contextMenu {
+								if channel.isActive {
+									Button("Leave Channel") { model.doubleClick(itemId: channel.id) }
+								} else {
+									Button("Join Channel") { model.doubleClick(itemId: channel.id) }
+								}
+								Divider()
+								Button("Channel Properties\u{2026}") { }
+							}
 					}
 				}
 			}
