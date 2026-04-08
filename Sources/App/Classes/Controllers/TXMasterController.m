@@ -65,6 +65,10 @@
 #import "TXMasterControllerPrivate.h"
 #import "IRCClient.h"
 
+@interface ServerListSwiftViewController : NSObject
++ (void)showDebugPanel;
+@end
+
 #if TEXTUAL_BUILT_WITH_SPARKLE_ENABLED == 1
 #import <Sparkle/Sparkle.h>
 #endif
@@ -292,6 +296,9 @@ NS_ASSUME_NONNULL_BEGIN
 	}
 
 	[self.mainWindow maybeToggleFullscreenAfterLaunch];
+
+	/* Show SwiftUI server list preview panel */
+	[ServerListSwiftViewController showDebugPanel];
 }
 
 - (void)applicationWillResignActive:(NSNotification *)notification

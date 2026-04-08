@@ -114,12 +114,39 @@ struct BadgeView: View {
 
 // MARK: - NSView Wrapper
 
+// MARK: - Debug Panel (temporary — shows SwiftUI sidebar alongside the real one)
+
 @objc(ServerListSwiftViewController)
 final class ServerListSwiftViewController: NSObject {
 	private static let model = ServerListModel()
+	private static var panel: NSPanel?
 
 	@objc static func makeView() -> NSView {
 		let view = NSHostingView(rootView: ServerListView(model: model))
 		return view
+	}
+
+	/// Show a floating panel with the SwiftUI server list for testing.
+	/// Call from ObjC: [ServerListSwiftViewController showDebugPanel]
+	@objc static func showDebugPanel() {
+		if let existing = panel {
+			existing.makeKeyAndOrderFront(nil)
+			return
+		}
+
+		let hostingView = NSHostingView(rootView: ServerListView(model: model))
+
+		let p = NSPanel(
+			contentRect: NSRect(x: 100, y: 100, width: 220, height: 500),
+			styleMask: [.titled, .closable, .resizable, .utilityWindow],
+			backing: .buffered,
+			defer: false
+		)
+		p.title = "SwiftUI Sidebar (Preview)"
+		p.contentView = hostingView
+		p.isFloatingPanel = true
+		p.makeKeyAndOrderFront(nil)
+
+		panel = p
 	}
 }
