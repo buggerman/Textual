@@ -112,17 +112,31 @@
 		IRCClient *client = (IRCClient *)item;
 
 		if (client.isConnecting || client.isConnected) {
-			[client quit];
-		} else {
-			[client connect];
+			if ([TPCPreferences disconnectOnDoubleclick]) {
+				[client quit];
+			}
+		} else if (client.isQuitting == NO) {
+			if ([TPCPreferences connectOnDoubleclick]) {
+				[client connect];
+			}
 		}
 	} else if (item.isChannel) {
+		IRCClient *client = item.associatedClient;
+
+		if (client.isLoggedIn == NO) {
+			return;
+		}
+
 		IRCChannel *channel = (IRCChannel *)item;
 
 		if (channel.isActive) {
-			[channel.associatedClient partChannel:channel];
+			if ([TPCPreferences leaveOnDoubleclick]) {
+				[client partChannel:channel];
+			}
 		} else {
-			[channel.associatedClient joinChannel:channel];
+			if ([TPCPreferences joinOnDoubleclick]) {
+				[client joinChannel:channel];
+			}
 		}
 	}
 }
