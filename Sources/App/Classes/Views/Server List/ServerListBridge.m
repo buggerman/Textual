@@ -120,7 +120,7 @@
 	return menuController().mainMenuServerMenuItem.submenu;
 }
 
-+ (nullable NSMenu *)channelContextMenuForItemWithId:(NSString *)uniqueId
++ (nullable NSMenu *)channelContextMenuForItem:(NSString *)uniqueId
 {
 	IRCWorld *world = masterController().world;
 

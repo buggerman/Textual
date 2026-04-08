@@ -35,7 +35,7 @@ struct ServerListView: View {
 							.tag(channel.id)
 							.contentShape(Rectangle())
 							.padding(.leading, 12)
-							.appKitContextMenu { ServerListBridge.channelContextMenu(forItemWithId: channel.id) }
+							.appKitContextMenu { ServerListBridge.channelContextMenu(forItem: channel.id) }
 					}
 				}
 			}
