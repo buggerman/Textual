@@ -1,0 +1,116 @@
+#import "IRCWorld.h"
+#import "IRCClient.h"
+#import "IRCChannel.h"
+#import "IRCTreeItemPrivate.h"
+#import "TVCMainWindowPrivate.h"
+#import "TVCServerList.h"
+#import "TXMasterController.h"
+#import "ServerListBridge.h"
+
+@implementation ServerListChannelSnapshot
+@end
+
+@implementation ServerListServerSnapshot
+@end
+
+@implementation ServerListBridge
+
++ (NSArray<ServerListServerSnapshot *> *)currentServers
+{
+	IRCWorld *world = masterController().world;
+
+	if (world == nil) {
+		return @[];
+	}
+
+	NSMutableArray *result = [NSMutableArray array];
+
+	for (IRCClient *client in world.clientList) {
+		ServerListServerSnapshot *server = [ServerListServerSnapshot new];
+
+		server.uniqueId = client.uniqueIdentifier;
+		server.name = client.label;
+		server.isActive = client.isActive;
+		server.isExpanded = client.sidebarItemIsExpanded;
+
+		NSMutableArray *channels = [NSMutableArray array];
+
+		for (IRCChannel *channel in client.channelList) {
+			ServerListChannelSnapshot *snap = [ServerListChannelSnapshot new];
+
+			snap.uniqueId = channel.uniqueIdentifier;
+			snap.name = channel.label;
+			snap.isActive = channel.isActive;
+			snap.isChannel = channel.isChannel;
+			snap.isPrivateMessage = channel.isPrivateMessage;
+			snap.unreadCount = channel.treeUnreadCount;
+			snap.highlightCount = channel.nicknameHighlightCount;
+
+			[channels addObject:snap];
+		}
+
+		server.channels = channels;
+
+		[result addObject:server];
+	}
+
+	return result;
+}
+
++ (nullable NSString *)selectedItemId
+{
+	IRCTreeItem *selected = mainWindow().selectedItem;
+
+	return selected.uniqueIdentifier;
+}
+
++ (void)selectItemWithId:(NSString *)uniqueId
+{
+	IRCWorld *world = masterController().world;
+
+	IRCTreeItem *item = [world findItemWithId:uniqueId];
+
+	if (item == nil) {
+		return;
+	}
+
+	NSOutlineView *serverList = mainWindow().serverList;
+
+	NSInteger row = [serverList rowForItem:item];
+
+	if (row >= 0) {
+		[serverList selectRowIndexes:[NSIndexSet indexSetWithIndex:row]
+				byExtendingSelection:NO];
+	}
+}
+
++ (void)doubleClickItemWithId:(NSString *)uniqueId
+{
+	IRCWorld *world = masterController().world;
+
+	IRCTreeItem *item = [world findItemWithId:uniqueId];
+
+	if (item == nil) {
+		return;
+	}
+
+	if (item.isClient) {
+		IRCClient *client = (IRCClient *)item;
+
+		if (client.isConnecting || client.isConnected) {
+			[client quit];
+		} else {
+			[client connect];
+		}
+	} else if (item.isChannel) {
+		IRCChannel *channel = (IRCChannel *)item;
+
+		if (channel.isActive) {
+			[channel.associatedClient partChannel:channel];
+		} else {
+			[channel.associatedClient joinChannel:channel];
+		}
+	}
+}
+
+@end

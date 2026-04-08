@@ -1213,6 +1213,12 @@
 		A1000006267D25B400D37F07 /* GeneralPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000005267D25B400D37F07 /* GeneralPreferencesView.swift */; };
 		A1000007267D25B400D37F07 /* LogLocationPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000008267D25B400D37F07 /* LogLocationPreferencesView.swift */; };
 		A1000009267D25B400D37F07 /* LogLocationPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000008267D25B400D37F07 /* LogLocationPreferencesView.swift */; };
+		B1000001267D25B400D37F07 /* ServerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000002267D25B400D37F07 /* ServerListModel.swift */; };
+		B1000003267D25B400D37F07 /* ServerListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000002267D25B400D37F07 /* ServerListModel.swift */; };
+		B1000004267D25B400D37F07 /* ServerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000005267D25B400D37F07 /* ServerListView.swift */; };
+		B1000006267D25B400D37F07 /* ServerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000005267D25B400D37F07 /* ServerListView.swift */; };
+		B1000007267D25B400D37F07 /* ServerListBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B1000008267D25B400D37F07 /* ServerListBridge.m */; };
+		B1000009267D25B400D37F07 /* ServerListBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = B1000008267D25B400D37F07 /* ServerListBridge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1821,6 +1827,10 @@
 		4C3152C920EB673E00448776 /* TVCAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCAlert.m; sourceTree = "<group>"; };
 		4C3152CB20EB673E00448776 /* TVCServerListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCServerListCell.m; sourceTree = "<group>"; };
 		4C3152CC20EB673E00448776 /* TVCServerList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCServerList.m; sourceTree = "<group>"; };
+		B1000002267D25B400D37F07 /* ServerListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListModel.swift; sourceTree = "<group>"; };
+		B1000005267D25B400D37F07 /* ServerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListView.swift; sourceTree = "<group>"; };
+		B1000008267D25B400D37F07 /* ServerListBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerListBridge.m; sourceTree = "<group>"; };
+		B100000A267D25B400D37F07 /* ServerListBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerListBridge.h; sourceTree = "<group>"; };
 		4C3152CD20EB673E00448776 /* TVCServerListAppearance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCServerListAppearance.m; sourceTree = "<group>"; };
 		4C3152CF20EB673E00448776 /* TVCMainWindowTextViewAppearance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCMainWindowTextViewAppearance.m; sourceTree = "<group>"; };
 		4C3152D120EB673E00448776 /* TVCMainWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCMainWindow.m; sourceTree = "<group>"; };
@@ -2912,6 +2922,10 @@
 		4C3152CA20EB673E00448776 /* Server List */ = {
 			isa = PBXGroup;
 			children = (
+				B100000A267D25B400D37F07 /* ServerListBridge.h */,
+				B1000008267D25B400D37F07 /* ServerListBridge.m */,
+				B1000002267D25B400D37F07 /* ServerListModel.swift */,
+				B1000005267D25B400D37F07 /* ServerListView.swift */,
 				4C3152CC20EB673E00448776 /* TVCServerList.m */,
 				4C3152CD20EB673E00448776 /* TVCServerListAppearance.m */,
 				4C3152CB20EB673E00448776 /* TVCServerListCell.m */,
@@ -4693,6 +4707,9 @@
 				4C06E62420EC553A0055D09A /* TVCMainWindowChannelView.m in Sources */,
 				4C06E62520EC553A0055D09A /* TVCMainWindowLoadingScreen.m in Sources */,
 				4C06E62620EC553A0055D09A /* TVCMainWindowSegmentedControl.m in Sources */,
+				B1000001267D25B400D37F07 /* ServerListModel.swift in Sources */,
+				B1000004267D25B400D37F07 /* ServerListView.swift in Sources */,
+				B1000007267D25B400D37F07 /* ServerListBridge.m in Sources */,
 				4C06E62820EC553A0055D09A /* TVCMainWindowSplitView.m in Sources */,
 				4C06E62920EC553A0055D09A /* TVCMainWindowTextView.m in Sources */,
 				4C06E62A20EC553A0055D09A /* TVCMainWindowTextViewAppearance.m in Sources */,
@@ -4879,6 +4896,9 @@
 				4C06E6DB20EC55B90055D09A /* TVCMainWindow.m in Sources */,
 				4C06E6DC20EC55B90055D09A /* TVCMainWindowAppearance.m in Sources */,
 				4C06E6DD20EC55B90055D09A /* TVCMainWindowChannelView.m in Sources */,
+				B1000003267D25B400D37F07 /* ServerListModel.swift in Sources */,
+				B1000006267D25B400D37F07 /* ServerListView.swift in Sources */,
+				B1000009267D25B400D37F07 /* ServerListBridge.m in Sources */,
 				4C06E6DE20EC55B90055D09A /* TVCMainWindowLoadingScreen.m in Sources */,
 				4C06E6DF20EC55B90055D09A /* TVCMainWindowSegmentedControl.m in Sources */,
 				4C06E6E120EC55B90055D09A /* TVCMainWindowSplitView.m in Sources */,

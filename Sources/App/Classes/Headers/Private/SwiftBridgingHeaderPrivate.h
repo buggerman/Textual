@@ -45,3 +45,6 @@
 
 // SwiftUI Preferences
 #import "PreferencesReloadHelper.h"
+
+// SwiftUI Server List
+#import "ServerListBridge.h"
