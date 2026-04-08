@@ -296,9 +296,6 @@ NS_ASSUME_NONNULL_BEGIN
 	}
 
 	[self.mainWindow maybeToggleFullscreenAfterLaunch];
-
-	/* Show SwiftUI server list preview panel */
-	[ServerListSwiftViewController showDebugPanel];
 }
 
 - (void)applicationWillResignActive:(NSNotification *)notification

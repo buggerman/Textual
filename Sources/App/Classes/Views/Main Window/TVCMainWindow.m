@@ -78,6 +78,10 @@
 #import "TLOSpeechSynthesizerPrivate.h"
 #import "TVCMainWindowPrivate.h"
 
+@interface ServerListSwiftViewController : NSObject
++ (NSView * _Nonnull)makeView;
+@end
+
 NS_ASSUME_NONNULL_BEGIN
 
 NSString * const TVCMainWindowAppearanceChangedNotification = @"TVCMainWindowAppearanceChangedNotification";
@@ -2131,6 +2135,36 @@ NSString * const TVCMainWindowSelectionChangedNotification = @"TVCMainWindowSele
 
 	/* Populate navigation list */
 	[menuController() populateNavigationChannelList];
+
+	/* Swap in SwiftUI server list sidebar */
+	[self installSwiftUIServerList];
+}
+
+- (void)installSwiftUIServerList
+{
+	NSScrollView *scrollView = self.serverList.enclosingScrollView;
+	NSView *container = scrollView.superview;
+
+	if (container == nil) {
+		return;
+	}
+
+	/* Hide the original outline view scroll view */
+	scrollView.hidden = YES;
+
+	/* Create and install the SwiftUI hosting view */
+	NSView *swiftUIView = [ServerListSwiftViewController makeView];
+
+	swiftUIView.translatesAutoresizingMaskIntoConstraints = NO;
+
+	[container addSubview:swiftUIView];
+
+	[NSLayoutConstraint activateConstraints:@[
+		[swiftUIView.topAnchor constraintEqualToAnchor:container.topAnchor],
+		[swiftUIView.bottomAnchor constraintEqualToAnchor:container.bottomAnchor],
+		[swiftUIView.leadingAnchor constraintEqualToAnchor:container.leadingAnchor],
+		[swiftUIView.trailingAnchor constraintEqualToAnchor:container.trailingAnchor],
+	]];
 }
 
 - (nullable IRCClient *)selectedClient
