@@ -6,6 +6,7 @@
 #import "TVCMainWindowPrivate.h"
 #import "TVCServerList.h"
 #import "TXMasterController.h"
+#import "TPCPreferencesLocal.h"
 #import "TXMenuController.h"
 #import "ServerListBridge.h"
 
@@ -158,6 +159,11 @@
 		[target performSelector:selector withObject:nil];
 #pragma clang diagnostic pop
 	}
+}
+
++ (BOOL)isLoggingEnabled
+{
+	return [TPCPreferences logToDiskIsEnabled];
 }
 
 + (void)toggleExpandedForServer:(NSString *)uniqueId

@@ -95,7 +95,7 @@ struct ServerListView: View {
 		Divider()
 
 		Button("View Logs") { act(channel.id, "openChannelLogs:") }
-			.disabled(!channel.isActive)
+			.disabled(!ServerListBridge.isLoggingEnabled())
 		Button("Modify Topic") { act(channel.id, "showChannelModifyTopicSheet:") }
 			.disabled(!channel.isActive)
 

@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable NSMenu *)channelContextMenuForItem:(NSString *)uniqueId;
 + (void)toggleExpandedForServer:(NSString *)uniqueId;
 + (void)performMenuAction:(NSString *)selectorName;
++ (BOOL)isLoggingEnabled;
 @end
 
 NS_ASSUME_NONNULL_END
