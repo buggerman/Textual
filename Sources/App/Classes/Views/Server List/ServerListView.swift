@@ -62,13 +62,16 @@ struct ServerListView: View {
 		Divider()
 
 		Button("Channel List\u{2026}") { act(server.id, "showServerChannelList:") }
+			.disabled(!server.isActive)
 		Button("Change Nickname\u{2026}") { act(server.id, "showServerChangeNicknameSheet:") }
+			.disabled(!server.isActive)
 
 		Divider()
 
 		Button("Add Server\u{2026}") { act(server.id, "addServer:") }
 		Button("Duplicate Server") { act(server.id, "duplicateServer:") }
 		Button("Delete Server\u{2026}") { act(server.id, "deleteServer:") }
+			.disabled(server.isActive)
 
 		Divider()
 
@@ -92,18 +95,25 @@ struct ServerListView: View {
 		Divider()
 
 		Button("View Logs") { act(channel.id, "openChannelLogs:") }
+			.disabled(!channel.isActive)
 		Button("Modify Topic") { act(channel.id, "showChannelModifyTopicSheet:") }
+			.disabled(!channel.isActive)
 
 		Menu("Modes") {
 			Button("Modes\u{2026}") { act(channel.id, "showChannelModifyModesSheet:") }
 		}
+		.disabled(!channel.isActive)
 
 		Divider()
 
 		Button("List of Bans") { act(channel.id, "showChannelBanList:") }
+			.disabled(!channel.isActive)
 		Button("List of Ban Exceptions") { act(channel.id, "showChannelBanExceptionList:") }
+			.disabled(!channel.isActive)
 		Button("List of Invite Exceptions") { act(channel.id, "showChannelInviteExceptionList:") }
+			.disabled(!channel.isActive)
 		Button("List of Quiets") { act(channel.id, "showChannelQuietList:") }
+			.disabled(!channel.isActive)
 
 		Divider()
 
