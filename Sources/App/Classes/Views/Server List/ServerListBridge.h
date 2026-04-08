@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)doubleClickItemWithId:(NSString *)uniqueId;
 + (nullable NSMenu *)serverContextMenu;
 + (nullable NSMenu *)channelContextMenuForItem:(NSString *)uniqueId;
++ (void)toggleExpandedForServer:(NSString *)uniqueId;
 @end
 
 NS_ASSUME_NONNULL_END

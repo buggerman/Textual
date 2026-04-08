@@ -78,6 +78,15 @@
 
 	NSOutlineView *serverList = mainWindow().serverList;
 
+	/* Ensure the parent is expanded so the item is visible */
+	if (item.isClient == NO) {
+		IRCClient *parent = item.associatedClient;
+
+		if (parent != nil && ![serverList isItemExpanded:parent]) {
+			[serverList expandItem:parent];
+		}
+	}
+
 	NSInteger row = [serverList rowForItem:item];
 
 	if (row >= 0) {
@@ -135,6 +144,27 @@
 	}
 
 	return menuController().mainMenuChannelMenu;
+}
+
++ (void)toggleExpandedForServer:(NSString *)uniqueId
+{
+	IRCWorld *world = masterController().world;
+
+	IRCTreeItem *item = [world findItemWithId:uniqueId];
+
+	if (item == nil || item.isClient == NO) {
+		return;
+	}
+
+	IRCClient *client = (IRCClient *)item;
+
+	NSOutlineView *serverList = mainWindow().serverList;
+
+	if ([serverList isItemExpanded:client]) {
+		[serverList collapseItem:client];
+	} else {
+		[serverList expandItem:client];
+	}
 }
 
 @end
