@@ -92,13 +92,15 @@ final class ServerListModel: ObservableObject {
 				))
 			}
 
+			let expanded = localExpandOverrides[snapshot.uniqueId] ?? snapshot.isExpanded
+
 			newServers.append(ServerItem(
 				id: snapshot.uniqueId,
 				name: snapshot.name,
 				isActive: snapshot.isActive,
 				isConnecting: snapshot.isConnecting,
 				isLoggedIn: snapshot.isLoggedIn,
-				isExpanded: snapshot.isExpanded,
+				isExpanded: expanded,
 				channels: channels
 			))
 		}
@@ -115,10 +117,27 @@ final class ServerListModel: ObservableObject {
 		selectedItemId = itemId
 	}
 
+	private var localExpandOverrides: [String: Bool] = [:]
+
 	func toggleExpanded(serverId: String) {
+		// Apply locally immediately for responsive UI
+		if let index = servers.firstIndex(where: { $0.id == serverId }) {
+			let newState = !servers[index].isExpanded
+			localExpandOverrides[serverId] = newState
+
+			servers[index] = ServerItem(
+				id: servers[index].id,
+				name: servers[index].name,
+				isActive: servers[index].isActive,
+				isConnecting: servers[index].isConnecting,
+				isLoggedIn: servers[index].isLoggedIn,
+				isExpanded: newState,
+				channels: servers[index].channels
+			)
+		}
+
+		// Also persist through the ObjC outline view
 		ServerListBridge.toggleExpanded(forServer: serverId)
-		// The next periodic refresh will pick up the new state
-		refresh()
 	}
 
 	func doubleClick(itemId: String) {

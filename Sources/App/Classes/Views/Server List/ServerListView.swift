@@ -161,13 +161,14 @@ struct ServerRow: View {
 
 			Spacer()
 
-			Button(action: onToggle) {
-				Image(systemName: server.isExpanded ? "chevron.down" : "chevron.right")
-					.font(.system(size: 9))
-					.foregroundColor(.secondary)
-			}
-			.buttonStyle(.plain)
-			.frame(width: 20, height: 20)
+			Image(systemName: server.isExpanded ? "chevron.down" : "chevron.right")
+				.font(.system(size: 9))
+				.foregroundColor(.secondary)
+				.frame(width: 20, height: 20)
+				.contentShape(Rectangle())
+				.onTapGesture {
+					onToggle()
+				}
 		}
 	}
 }
