@@ -14,7 +14,7 @@ import Combine
 
 // MARK: - Value Types
 
-struct ServerItem: Identifiable {
+struct ServerItem: Identifiable, Equatable {
 	let id: String
 	let name: String
 	let isActive: Bool
@@ -24,7 +24,7 @@ struct ServerItem: Identifiable {
 	var channels: [ChannelItem]
 }
 
-struct ChannelItem: Identifiable {
+struct ChannelItem: Identifiable, Equatable {
 	let id: String
 	let name: String
 	let isActive: Bool
@@ -57,8 +57,8 @@ final class ServerListModel: ObservableObject {
 			.sink { [weak self] _ in self?.refreshSelection() }
 			.store(in: &cancellables)
 
-		// Periodic refresh for unread counts and connection state (1 second)
-		refreshTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+		// Periodic refresh for unread counts and connection state
+		refreshTimer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { [weak self] _ in
 			DispatchQueue.main.async {
 				self?.refresh()
 			}
@@ -105,7 +105,9 @@ final class ServerListModel: ObservableObject {
 			))
 		}
 
-		servers = newServers
+		if newServers != servers {
+			servers = newServers
+		}
 	}
 
 	func refreshSelection() {
