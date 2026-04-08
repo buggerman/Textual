@@ -1,5 +1,6 @@
 #import "IRCWorld.h"
 #import "IRCClient.h"
+#import "IRCClientPrivate.h"
 #import "IRCChannel.h"
 #import "IRCTreeItemPrivate.h"
 #import "TVCMainWindowPrivate.h"
