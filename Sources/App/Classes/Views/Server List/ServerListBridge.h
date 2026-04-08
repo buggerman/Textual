@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (nullable NSMenu *)serverContextMenu;
 + (nullable NSMenu *)channelContextMenuForItem:(NSString *)uniqueId;
 + (void)toggleExpandedForServer:(NSString *)uniqueId;
++ (void)performMenuAction:(NSString *)selectorName;
 @end
 
 NS_ASSUME_NONNULL_END

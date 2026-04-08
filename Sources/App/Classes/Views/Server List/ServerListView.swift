@@ -30,14 +30,7 @@ struct ServerListView: View {
 				.tag(server.id)
 				.contentShape(Rectangle())
 				.contextMenu {
-					if server.isActive {
-						Button("Disconnect") { model.doubleClick(itemId: server.id) }
-					} else {
-						Button("Connect") { model.doubleClick(itemId: server.id) }
-					}
-					Divider()
-					Button("Add Channel\u{2026}") { }
-					Button("Server Properties\u{2026}") { }
+					serverContextMenu(server: server)
 				}
 
 				if server.isExpanded {
@@ -47,19 +40,81 @@ struct ServerListView: View {
 							.contentShape(Rectangle())
 							.padding(.leading, 12)
 							.contextMenu {
-								if channel.isActive {
-									Button("Leave Channel") { model.doubleClick(itemId: channel.id) }
-								} else {
-									Button("Join Channel") { model.doubleClick(itemId: channel.id) }
-								}
-								Divider()
-								Button("Channel Properties\u{2026}") { }
+								channelContextMenu(channel: channel)
 							}
 					}
 				}
 			}
 		}
 		.listStyle(.sidebar)
+	}
+
+	// MARK: - Context Menus
+
+	@ViewBuilder
+	private func serverContextMenu(server: ServerItem) -> some View {
+		if server.isActive {
+			Button("Disconnect") { act(server.id, "disconnect:") }
+		} else {
+			Button("Connect") { act(server.id, "connect:") }
+		}
+
+		Divider()
+
+		Button("Channel List\u{2026}") { act(server.id, "showServerChannelList:") }
+		Button("Change Nickname\u{2026}") { act(server.id, "showServerChangeNicknameSheet:") }
+
+		Divider()
+
+		Button("Add Server\u{2026}") { act(server.id, "addServer:") }
+		Button("Duplicate Server") { act(server.id, "duplicateServer:") }
+		Button("Delete Server\u{2026}") { act(server.id, "deleteServer:") }
+
+		Divider()
+
+		Button("Add Channel\u{2026}") { act(server.id, "addChannel:") }
+		Button("Server Properties\u{2026}") { act(server.id, "showServerPropertiesSheet:") }
+	}
+
+	@ViewBuilder
+	private func channelContextMenu(channel: ChannelItem) -> some View {
+		if channel.isActive {
+			Button("Leave Channel") { act(channel.id, "leaveChannel:") }
+		} else {
+			Button("Join Channel") { act(channel.id, "joinChannel:") }
+		}
+
+		Divider()
+
+		Button("Add Channel\u{2026}") { act(channel.id, "addChannel:") }
+		Button("Delete Channel") { act(channel.id, "deleteChannel:") }
+
+		Divider()
+
+		Button("View Logs") { act(channel.id, "openChannelLogs:") }
+		Button("Modify Topic") { act(channel.id, "showChannelModifyTopicSheet:") }
+
+		Menu("Modes") {
+			Button("Modes\u{2026}") { act(channel.id, "showChannelModifyModesSheet:") }
+		}
+
+		Divider()
+
+		Button("List of Bans") { act(channel.id, "showChannelBanList:") }
+		Button("List of Ban Exceptions") { act(channel.id, "showChannelBanExceptionList:") }
+		Button("List of Invite Exceptions") { act(channel.id, "showChannelInviteExceptionList:") }
+		Button("List of Quiets") { act(channel.id, "showChannelQuietList:") }
+
+		Divider()
+
+		Button("Channel Properties\u{2026}") { act(channel.id, "showChannelPropertiesSheet:") }
+	}
+
+	private func act(_ itemId: String, _ selector: String) {
+		model.select(itemId: itemId)
+		DispatchQueue.main.async {
+			ServerListBridge.performMenuAction(selector)
+		}
 	}
 }
 

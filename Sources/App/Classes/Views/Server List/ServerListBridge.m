@@ -146,6 +146,20 @@
 	return menuController().mainMenuChannelMenu;
 }
 
++ (void)performMenuAction:(NSString *)selectorName
+{
+	SEL selector = NSSelectorFromString(selectorName);
+
+	id target = menuController();
+
+	if ([target respondsToSelector:selector]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+		[target performSelector:selector withObject:nil];
+#pragma clang diagnostic pop
+	}
+}
+
 + (void)toggleExpandedForServer:(NSString *)uniqueId
 {
 	IRCWorld *world = masterController().world;
