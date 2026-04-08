@@ -6,6 +6,7 @@
 #import "TVCMainWindowPrivate.h"
 #import "TVCServerList.h"
 #import "TXMasterController.h"
+#import "TXMenuController.h"
 #import "ServerListBridge.h"
 
 @implementation ServerListChannelSnapshot
@@ -112,6 +113,28 @@
 			[channel.associatedClient joinChannel:channel];
 		}
 	}
+}
+
++ (nullable NSMenu *)serverContextMenu
+{
+	return menuController().mainMenuServerMenuItem.submenu;
+}
+
++ (nullable NSMenu *)channelContextMenuForItemWithId:(NSString *)uniqueId
+{
+	IRCWorld *world = masterController().world;
+
+	IRCTreeItem *item = [world findItemWithId:uniqueId];
+
+	if (item == nil) {
+		return nil;
+	}
+
+	if (item.isPrivateMessage) {
+		return menuController().mainMenuQueryMenu;
+	}
+
+	return menuController().mainMenuChannelMenu;
 }
 
 @end

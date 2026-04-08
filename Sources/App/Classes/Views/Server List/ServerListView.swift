@@ -27,6 +27,7 @@ struct ServerListView: View {
 				ServerRow(server: server)
 					.tag(server.id)
 					.contentShape(Rectangle())
+					.appKitContextMenu { ServerListBridge.serverContextMenu() }
 
 				if server.isExpanded {
 					ForEach(server.channels) { channel in
@@ -34,6 +35,7 @@ struct ServerListView: View {
 							.tag(channel.id)
 							.contentShape(Rectangle())
 							.padding(.leading, 12)
+							.appKitContextMenu { ServerListBridge.channelContextMenu(forItemWithId: channel.id) }
 					}
 				}
 			}
@@ -118,6 +120,30 @@ struct BadgeView: View {
 }
 
 // MARK: - NSView Wrapper
+
+// MARK: - AppKit Context Menu Bridge
+
+struct AppKitContextMenu: NSViewRepresentable {
+	let menu: () -> NSMenu?
+
+	func makeNSView(context: Context) -> NSView {
+		let view = NSView()
+		return view
+	}
+
+	func updateNSView(_ nsView: NSView, context: Context) {
+		nsView.menu = menu()
+	}
+}
+
+extension View {
+	func appKitContextMenu(_ menu: @escaping () -> NSMenu?) -> some View {
+		self.overlay(
+			AppKitContextMenu(menu: menu)
+				.allowsHitTesting(false)
+		)
+	}
+}
 
 // MARK: - Debug Panel (temporary — shows SwiftUI sidebar alongside the real one)
 
