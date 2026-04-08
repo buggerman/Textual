@@ -18,6 +18,8 @@ struct ServerItem: Identifiable {
 	let id: String
 	let name: String
 	let isActive: Bool
+	let isConnecting: Bool
+	let isLoggedIn: Bool
 	let isExpanded: Bool
 	var channels: [ChannelItem]
 }
@@ -94,6 +96,8 @@ final class ServerListModel: ObservableObject {
 				id: snapshot.uniqueId,
 				name: snapshot.name,
 				isActive: snapshot.isActive,
+				isConnecting: snapshot.isConnecting,
+				isLoggedIn: snapshot.isLoggedIn,
 				isExpanded: snapshot.isExpanded,
 				channels: channels
 			))

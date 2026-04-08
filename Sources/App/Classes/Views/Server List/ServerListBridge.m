@@ -34,6 +34,8 @@
 		server.uniqueId = client.uniqueIdentifier;
 		server.name = client.label;
 		server.isActive = client.isActive;
+		server.isConnecting = client.isConnecting;
+		server.isLoggedIn = client.isLoggedIn;
 		server.isExpanded = client.sidebarItemIsExpanded;
 
 		NSMutableArray *channels = [NSMutableArray array];

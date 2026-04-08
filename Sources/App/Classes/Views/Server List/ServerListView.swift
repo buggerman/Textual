@@ -51,9 +51,16 @@ struct ServerListView: View {
 
 	// MARK: - Context Menus
 
+	/// Find the parent server for a channel
+	private func serverFor(_ channel: ChannelItem) -> ServerItem? {
+		model.servers.first { $0.channels.contains { $0.id == channel.id } }
+	}
+
 	@ViewBuilder
 	private func serverContextMenu(server: ServerItem) -> some View {
-		if server.isActive {
+		let connected = server.isActive || server.isConnecting
+
+		if connected {
 			Button("Disconnect") { act(server.id, "disconnect:") }
 		} else {
 			Button("Connect") { act(server.id, "connect:") }
@@ -62,7 +69,7 @@ struct ServerListView: View {
 		Divider()
 
 		Button("Channel List\u{2026}") { act(server.id, "showServerChannelList:") }
-			.disabled(!server.isActive)
+			.disabled(!server.isLoggedIn)
 		Button("Change Nickname\u{2026}") { act(server.id, "showServerChangeNicknameSheet:") }
 			.disabled(!server.isActive)
 
@@ -71,7 +78,7 @@ struct ServerListView: View {
 		Button("Add Server\u{2026}") { act(server.id, "addServer:") }
 		Button("Duplicate Server") { act(server.id, "duplicateServer:") }
 		Button("Delete Server\u{2026}") { act(server.id, "deleteServer:") }
-			.disabled(server.isActive)
+			.disabled(connected)
 
 		Divider()
 
@@ -81,10 +88,17 @@ struct ServerListView: View {
 
 	@ViewBuilder
 	private func channelContextMenu(channel: ChannelItem) -> some View {
-		if channel.isActive {
+		let server = serverFor(channel)
+		let loggedIn = server?.isLoggedIn ?? false
+		let canAct = loggedIn && channel.isActive
+
+		if !loggedIn || channel.isActive {
 			Button("Leave Channel") { act(channel.id, "leaveChannel:") }
-		} else {
+				.disabled(!canAct)
+		}
+		if !loggedIn || !channel.isActive {
 			Button("Join Channel") { act(channel.id, "joinChannel:") }
+				.disabled(!loggedIn)
 		}
 
 		Divider()
@@ -96,24 +110,25 @@ struct ServerListView: View {
 
 		Button("View Logs") { act(channel.id, "openChannelLogs:") }
 			.disabled(!ServerListBridge.isLoggingEnabled())
+
 		Button("Modify Topic") { act(channel.id, "showChannelModifyTopicSheet:") }
-			.disabled(!channel.isActive)
+			.disabled(!canAct)
 
 		Menu("Modes") {
 			Button("Modes\u{2026}") { act(channel.id, "showChannelModifyModesSheet:") }
 		}
-		.disabled(!channel.isActive)
+		.disabled(!canAct)
 
 		Divider()
 
 		Button("List of Bans") { act(channel.id, "showChannelBanList:") }
-			.disabled(!channel.isActive)
+			.disabled(!canAct)
 		Button("List of Ban Exceptions") { act(channel.id, "showChannelBanExceptionList:") }
-			.disabled(!channel.isActive)
+			.disabled(!canAct)
 		Button("List of Invite Exceptions") { act(channel.id, "showChannelInviteExceptionList:") }
-			.disabled(!channel.isActive)
+			.disabled(!canAct)
 		Button("List of Quiets") { act(channel.id, "showChannelQuietList:") }
-			.disabled(!channel.isActive)
+			.disabled(!canAct)
 
 		Divider()
 

@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *uniqueId;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) BOOL isActive;
+@property (nonatomic, assign) BOOL isConnecting;
+@property (nonatomic, assign) BOOL isLoggedIn;
 @property (nonatomic, assign) BOOL isExpanded;
 @property (nonatomic, copy) NSArray<ServerListChannelSnapshot *> *channels;
 @end
