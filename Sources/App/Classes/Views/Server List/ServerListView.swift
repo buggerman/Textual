@@ -29,6 +29,13 @@ struct ServerListView: View {
 				})
 				.tag(server.id)
 				.contentShape(Rectangle())
+				.onTapGesture(count: 2) {
+					model.select(itemId: server.id)
+					model.doubleClick(itemId: server.id)
+				}
+				.onTapGesture(count: 1) {
+					model.select(itemId: server.id)
+				}
 				.contextMenu {
 					serverContextMenu(server: server)
 				}
@@ -39,6 +46,13 @@ struct ServerListView: View {
 							.tag(channel.id)
 							.contentShape(Rectangle())
 							.padding(.leading, 12)
+							.onTapGesture(count: 2) {
+								model.select(itemId: channel.id)
+								model.doubleClick(itemId: channel.id)
+							}
+							.onTapGesture(count: 1) {
+								model.select(itemId: channel.id)
+							}
 							.contextMenu {
 								channelContextMenu(channel: channel)
 							}
