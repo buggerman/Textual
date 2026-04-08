@@ -24,16 +24,17 @@ struct ServerListView: View {
 			}
 		)) {
 			ForEach(model.servers) { server in
-				Section(isExpanded: .constant(server.isExpanded)) {
+				ServerRow(server: server)
+					.tag(server.id)
+					.contentShape(Rectangle())
+
+				if server.isExpanded {
 					ForEach(server.channels) { channel in
 						ChannelRow(channel: channel)
 							.tag(channel.id)
 							.contentShape(Rectangle())
+							.padding(.leading, 12)
 					}
-				} header: {
-					ServerRow(server: server)
-						.tag(server.id)
-						.contentShape(Rectangle())
 				}
 			}
 		}
@@ -48,9 +49,19 @@ struct ServerRow: View {
 
 	var body: some View {
 		HStack {
+			Circle()
+				.fill(server.isActive ? Color.green : Color.gray)
+				.frame(width: 8, height: 8)
+
 			Text(server.name)
 				.font(.system(size: 12, weight: .semibold))
 				.foregroundColor(server.isActive ? .primary : .secondary)
+
+			Spacer()
+
+			Image(systemName: server.isExpanded ? "chevron.down" : "chevron.right")
+				.font(.system(size: 9))
+				.foregroundColor(.secondary)
 		}
 	}
 }
